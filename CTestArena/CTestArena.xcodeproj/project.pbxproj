@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		02C3A8511800C64A00E86DAF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A8501800C64A00E86DAF /* main.c */; };
 		02C3A8531800C64A00E86DAF /* CTestArena.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C3A8521800C64A00E86DAF /* CTestArena.1 */; };
+		02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		02C3A84D1800C64A00E86DAF /* CTestArena */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CTestArena; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3A8501800C64A00E86DAF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		02C3A8521800C64A00E86DAF /* CTestArena.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CTestArena.1; sourceTree = "<group>"; };
+		02C3A85B1800CA2800E86DAF /* binary_tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = binary_tree.h; sourceTree = "<group>"; };
+		02C3A85C1800CA3800E86DAF /* binary_tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = binary_tree.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +63,20 @@
 		02C3A84F1800C64A00E86DAF /* CTestArena */ = {
 			isa = PBXGroup;
 			children = (
+				02C3A8591800CA0D00E86DAF /* Modules */,
 				02C3A8501800C64A00E86DAF /* main.c */,
 				02C3A8521800C64A00E86DAF /* CTestArena.1 */,
 			);
 			path = CTestArena;
+			sourceTree = "<group>";
+		};
+		02C3A8591800CA0D00E86DAF /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				02C3A85B1800CA2800E86DAF /* binary_tree.h */,
+				02C3A85C1800CA3800E86DAF /* binary_tree.c */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */,
 				02C3A8511800C64A00E86DAF /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

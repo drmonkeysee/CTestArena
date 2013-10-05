@@ -12,5 +12,6 @@
 typedef struct bt_node *binary_tree;
 
 binary_tree bt_create_tree(void);
+_Bool bt_is_empty(binary_tree tree);
 
 #endif

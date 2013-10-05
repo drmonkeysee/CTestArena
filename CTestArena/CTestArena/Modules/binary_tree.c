@@ -7,7 +7,7 @@
 //
 
 #include <stdlib.h>
-#include <stdio.h>
+#include <stdbool.h>
 
 #include "binary_tree.h"
 
@@ -20,4 +20,9 @@ struct bt_node {
 binary_tree bt_create_tree(void)
 {
     return NULL;
+}
+
+_Bool bt_is_empty(binary_tree tree)
+{
+    return tree == NULL;
 }

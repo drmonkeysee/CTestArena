@@ -8,9 +8,11 @@
 
 #include <stdio.h>
 
-int main(int argc, const char * argv[])
+#include "binary_tree.h"
+
+int main(int argc, const char *argv[])
 {
-    // insert code here...
+    binary_tree mytree = bt_create_tree();
     printf("Hello, World!\n");
     return 0;
 }

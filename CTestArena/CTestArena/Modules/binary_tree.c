@@ -22,9 +22,9 @@ static int foo(void)
     return 8;
 }
 
-binary_tree bt_make_tree(void)
+binary_tree bt_create_tree(void)
 {
     int butt = foo();
-    printf("Called make tree %d", butt);
+    printf("Called make tree %d\n", butt);
     return NULL;
 }

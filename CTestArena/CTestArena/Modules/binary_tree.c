@@ -17,14 +17,7 @@ struct bt_node {
     struct bt_node *right;
 };
 
-static int foo(void)
-{
-    return 8;
-}
-
 binary_tree bt_create_tree(void)
 {
-    int butt = foo();
-    printf("Called make tree %d\n", butt);
     return NULL;
 }

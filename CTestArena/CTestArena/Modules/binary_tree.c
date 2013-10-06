@@ -17,7 +17,7 @@ struct bt_node {
     struct bt_node *right;
 };
 
-binary_tree bt_create_tree(void)
+binary_tree bt_create(void)
 {
     return NULL;
 }

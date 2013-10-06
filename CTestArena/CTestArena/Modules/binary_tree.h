@@ -9,9 +9,28 @@
 #ifndef CTestArena_binary_tree_h
 #define CTestArena_binary_tree_h
 
+/* Binary tree type. */
 typedef struct bt_node *binary_tree;
 
-binary_tree bt_create_tree(void);
-_Bool bt_is_empty(binary_tree tree);
+/* Create an empty binary tree. */
+binary_tree bt_create(void);
+
+/* Free a binary tree. */
+void bt_free(binary_tree);
+
+/* Is the binary tree empty? */
+_Bool bt_is_empty(binary_tree);
+
+/* Insert value into binary tree. */
+_Bool bt_insert(binary_tree, int);
+
+/* Remove value from binary tree */
+_Bool bt_remove(binary_tree, int);
+
+/* Does tree contain value? */
+_Bool bt_contains(binary_tree, int);
+
+/* Convert the existing tree into a balanced tree (what happens to original tree?) */
+binary_tree bt_rebalance(binary_tree);
 
 #endif

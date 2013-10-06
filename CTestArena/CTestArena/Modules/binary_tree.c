@@ -21,6 +21,20 @@ binary_tree bt_create(void)
     return NULL;
 }
 
+binary_tree bt_create_with_values(int count, ...)
+{
+    return NULL;
+}
+
+void bt_free(binary_tree tree)
+{
+    if (tree) {
+        bt_free(tree->left);
+        bt_free(tree->right);
+    }
+    free(tree);
+}
+
 _Bool bt_is_empty(binary_tree tree)
 {
     return tree == NULL;

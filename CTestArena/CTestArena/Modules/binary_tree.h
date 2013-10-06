@@ -16,7 +16,7 @@ typedef struct bt_node *binary_tree;
 binary_tree bt_create(void);
 
 /* Create a binary tree with the given elements. */
-binary_tree bt_create_withvalues(int count, ...);
+binary_tree bt_create_with_values(int count, ...);
 
 /* Free a binary tree. */
 void bt_free(binary_tree);

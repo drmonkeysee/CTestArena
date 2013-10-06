@@ -7,7 +7,6 @@
 //
 
 #include <stdlib.h>
-#include <stdbool.h>
 
 #include "binary_tree.h"
 

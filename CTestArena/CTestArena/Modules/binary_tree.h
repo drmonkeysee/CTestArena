@@ -21,16 +21,26 @@ void bt_free(binary_tree);
 /* Is the binary tree empty? */
 _Bool bt_is_empty(binary_tree);
 
-/* Insert value into binary tree. */
-_Bool bt_insert(binary_tree, int);
+/* Insert value into binary tree.
+ * Returns the new node inserted into the tree.
+ */
+binary_tree bt_insert(binary_tree, int);
 
-/* Remove value from binary tree */
-_Bool bt_remove(binary_tree, int);
+/* Remove value from binary tree.
+ * Returns the tree node that replaced the element just removed.
+ */
+binary_tree bt_remove(binary_tree, int);
 
 /* Does tree contain value? */
 _Bool bt_contains(binary_tree, int);
 
 /* Convert the existing tree into a balanced tree (what happens to original tree?) */
 binary_tree bt_rebalance(binary_tree);
+
+/* The number of elements contained in the binary tree. */
+int bt_size(binary_tree);
+
+/* The maximum depth of the binary tree. */
+int bt_depth(binary_tree);
 
 #endif

@@ -15,6 +15,9 @@ typedef struct bt_node *binary_tree;
 /* Create an empty binary tree. */
 binary_tree bt_create(void);
 
+/* Create a binary tree with the given elements. */
+binary_tree bt_create_withvalues(int count, ...);
+
 /* Free a binary tree. */
 void bt_free(binary_tree);
 
@@ -28,6 +31,7 @@ binary_tree bt_insert(binary_tree, int);
 
 /* Remove value from binary tree.
  * Returns the tree node that replaced the element just removed.
+ * If the node removed was a leaf node then the return value will be the empty binary tree.
  */
 binary_tree bt_remove(binary_tree, int);
 

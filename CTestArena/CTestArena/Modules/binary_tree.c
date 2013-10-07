@@ -57,7 +57,7 @@ binary_tree bt_create_with_values(unsigned int count, ...)
     
     va_list args;
     va_start(args, count);
-    for (int i = 0; i < count; ++i)
+    for (unsigned int i = 0; i < count; ++i)
         bt_insert(new_tree, va_arg(args, int));
     va_end(args);
     

@@ -9,7 +9,7 @@
 #ifndef CTestArena_binary_tree_h
 #define CTestArena_binary_tree_h
 
-/* Binary tree type. */
+/* Binary tree reference type. */
 typedef struct bt_node *binary_tree;
 
 /* Create an empty binary tree. */

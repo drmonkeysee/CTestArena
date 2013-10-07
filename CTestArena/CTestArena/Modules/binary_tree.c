@@ -80,9 +80,8 @@ _Bool bt_is_empty(binary_tree const tree)
 
 binary_tree bt_insert(binary_tree tree, int value)
 {
-    if (!tree) {
+    if (!tree)
         return create_node(value);
-    }
     
     return insert_new_node(tree, value);
 }

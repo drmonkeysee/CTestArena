@@ -7,6 +7,7 @@
 //
 
 #include <stdlib.h>
+#include <stdarg.h>
 
 #include "binary_tree.h"
 
@@ -50,9 +51,17 @@ binary_tree bt_create(void)
     return NULL;
 }
 
-binary_tree bt_create_with_values(int count, ...)
+binary_tree bt_create_with_values(unsigned int count, ...)
 {
-    return NULL;
+    binary_tree new_tree = bt_create();
+    
+    va_list args;
+    va_start(args, count);
+    for (int i = 0; i < count; ++i)
+        bt_insert(new_tree, va_arg(args, int));
+    va_end(args);
+    
+    return new_tree;
 }
 
 void bt_free(binary_tree tree)

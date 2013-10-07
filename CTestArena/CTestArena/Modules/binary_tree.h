@@ -15,8 +15,12 @@ typedef struct bt_node *binary_tree;
 /* Create an empty binary tree. */
 binary_tree bt_create(void);
 
-/* Create a binary tree with the given elements. */
-binary_tree bt_create_with_values(int count, ...);
+/* Create a binary tree with the given values.
+ * The values are inserted in the order they are passed.
+ * This may result in a wildly imbalanced tree.
+ * Use bt_rebalance() to fix-up the tree after creation.
+ */
+binary_tree bt_create_with_values(unsigned int, ...);
 
 /* Free a binary tree. */
 void bt_free(binary_tree);

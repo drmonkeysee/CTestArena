@@ -28,6 +28,7 @@ static binary_tree create_node(int value)
 static binary_tree insert_new_node(binary_tree tree, int value)
 {
     binary_tree inserted_node;
+    
     if (tree->value == value)
         inserted_node = tree;
     else if (tree->value > value) {

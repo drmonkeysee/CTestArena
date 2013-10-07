@@ -25,6 +25,25 @@ static binary_tree create_node(int value)
     return new_node;
 }
 
+static binary_tree insert_new_node(binary_tree tree, int value)
+{
+    binary_tree inserted_node;
+    if (tree->value == value)
+        inserted_node = tree;
+    else if (tree->value > value) {
+        inserted_node = bt_insert(tree->left, value);
+        if (!tree->left)
+            tree->left = inserted_node;
+    }
+    else {
+        inserted_node = bt_insert(tree->right, value);
+        if (!tree->right)
+            tree->right = inserted_node;
+    }
+    
+    return inserted_node;
+}
+
 binary_tree bt_create(void)
 {
     return NULL;
@@ -55,19 +74,5 @@ binary_tree bt_insert(binary_tree tree, int value)
         return create_node(value);
     }
     
-    binary_tree inserted_node;
-    if (tree->value == value)
-        inserted_node = tree;
-    else if (tree->value > value) {
-        inserted_node = bt_insert(tree->left, value);
-        if (!tree->left)
-            tree->left = inserted_node;
-    }
-    else {
-        inserted_node = bt_insert(tree->right, value);
-        if (!tree->right)
-            tree->right = inserted_node;
-    }
-    
-    return inserted_node;
+    return insert_new_node(tree, value);
 }

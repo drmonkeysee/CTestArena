@@ -16,6 +16,15 @@ struct bt_node {
     struct bt_node *right;
 };
 
+static binary_tree create_node(int value)
+{
+    binary_tree new_node = malloc(sizeof(struct bt_node));
+    new_node->value = value;
+    new_node->left = NULL;
+    new_node->right = NULL;
+    return new_node;
+}
+
 binary_tree bt_create(void)
 {
     return NULL;
@@ -38,4 +47,27 @@ void bt_free(binary_tree tree)
 _Bool bt_is_empty(binary_tree tree)
 {
     return tree == NULL;
+}
+
+binary_tree bt_insert(binary_tree tree, int value)
+{
+    if (!tree) {
+        return create_node(value);
+    }
+    
+    binary_tree inserted_node;
+    if (tree->value == value)
+        inserted_node = tree;
+    else if (tree->value > value) {
+        inserted_node = bt_insert(tree->left, value);
+        if (!tree->left)
+            tree->left = inserted_node;
+    }
+    else {
+        inserted_node = bt_insert(tree->right, value);
+        if (!tree->right)
+            tree->right = inserted_node;
+    }
+    
+    return inserted_node;
 }

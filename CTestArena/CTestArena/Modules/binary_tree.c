@@ -36,8 +36,7 @@ static binary_tree insert_new_node(binary_tree tree, int value)
         inserted_node = bt_insert(tree->left, value);
         if (!tree->left)
             tree->left = inserted_node;
-    }
-    else {
+    } else {
         inserted_node = bt_insert(tree->right, value);
         if (!tree->right)
             tree->right = inserted_node;

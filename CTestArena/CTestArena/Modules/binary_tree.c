@@ -64,7 +64,7 @@ void bt_free(binary_tree tree)
     free(tree);
 }
 
-_Bool bt_is_empty(binary_tree tree)
+_Bool bt_is_empty(binary_tree const tree)
 {
     return tree == NULL;
 }

@@ -22,7 +22,7 @@ binary_tree bt_create_with_values(int count, ...);
 void bt_free(binary_tree);
 
 /* Is the binary tree empty? */
-_Bool bt_is_empty(binary_tree);
+_Bool bt_is_empty(binary_tree const);
 
 /* Insert value into binary tree.
  * Returns the new node inserted into the tree.
@@ -36,17 +36,17 @@ binary_tree bt_insert(binary_tree, int);
 binary_tree bt_remove(binary_tree, int);
 
 /* Does tree contain value? */
-_Bool bt_contains(binary_tree, int);
+_Bool bt_contains(binary_tree const, int);
 
 /* Convert the existing tree into a balanced tree (what happens to original tree?) */
 binary_tree bt_rebalance(binary_tree);
 
 /* The number of elements contained in the binary tree. */
-int bt_size(binary_tree);
+int bt_size(binary_tree const);
 
 /* The maximum depth of the binary tree. */
-int bt_depth(binary_tree);
+int bt_depth(binary_tree const);
 
-void bt_print(binary_tree);
+void bt_print(binary_tree const);
 
 #endif

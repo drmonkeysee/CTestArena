@@ -19,7 +19,7 @@ struct bt_node {
 
 static binary_tree create_node(int value)
 {
-    binary_tree new_node = malloc(sizeof(struct bt_node));
+    binary_tree new_node = malloc(sizeof *new_node);
     new_node->value = value;
     new_node->left = NULL;
     new_node->right = NULL;

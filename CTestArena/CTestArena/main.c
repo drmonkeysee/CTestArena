@@ -13,7 +13,7 @@
 
 int main(int argc, const char *argv[])
 {
-    binary_tree mytree = bt_create_with_values(5, 4, 8, -1, -3, 12);
+    binary_tree mytree = bt_create_with_values(5, 4, 8, -3, -1, 7);
 
     printf("Is binary tree empty? %s\n", bt_is_empty(mytree) ? "True" : "False");
     

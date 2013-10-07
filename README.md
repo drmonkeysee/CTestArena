@@ -6,7 +6,7 @@ This won't be a real project. It won't compile into something cool. It's just a 
 A few of the techniques I want to explore in this project:
 
 * pulling in and linking the [SDL] framework/library
-* expressing code in clearly defined modules with opaque types where appropriate
+* expressing code in clearly defined modules with opaque types where appropriate (should binary\_tree be binary\_tree\_ref? or not hide the pointer modifier?)
 * explore the interplay between xcode projects and workspaces
 * play with unit-testing
 * building linked libraries as static libraries and as frameworks (to limit public header exposure)

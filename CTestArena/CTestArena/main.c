@@ -11,19 +11,14 @@
 
 #include "binary_tree.h"
 
-void binarytrees()
+void binarytrees(void)
 {
-    binary_tree mytree = bt_create_with_values(5, 4, 8, -3, -1, 7);
-    
-    printf("Is binary tree empty? %s\n", bt_is_empty(mytree) ? "True" : "False");
-    
-//    bt_print(mytree);
-    
-    bt_free(mytree);
+    printf("-- binarytrees --\n");
 }
 
-void compare_sizeof()
+void compare_sizeof(void)
 {
+    printf("-- compare_sizeof --\n");
     struct foo {
         int bar;
         char baz;
@@ -41,9 +36,32 @@ void compare_sizeof()
     printf("Size of dereference myref: %lu\n", sizeof *myref);
 }
 
+void reassign_struct_member(void)
+{
+    printf("-- reassign_struct_member --\n");
+    struct node {
+        int value;
+        struct node *child;
+    };
+    struct node a_child = { .value = 9 };
+    struct node parent = { .value = 5, .child = &a_child };
+    printf("Parent: %d --> %d\n", parent.value, parent.child->value);
+    
+    struct node **parent_child = &parent.child;
+    struct node another_child = { .value = 40 };
+    *parent_child = &another_child;
+    printf("Parent after child reassignment: %d --> %d\n", parent.value, parent.child->value);
+    
+    int *parent_value = &parent.value;
+    *parent_value = 12;
+    printf("Parent after value reassignment: %d --> %d\n", parent.value, parent.child->value);
+}
+
 int main(int argc, const char *argv[])
 {
+    binarytrees();
     compare_sizeof();
+    reassign_struct_member();
     
     return EXIT_SUCCESS;
 }

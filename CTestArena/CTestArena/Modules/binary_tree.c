@@ -13,16 +13,18 @@
 
 struct bt_node {
     int value;
-    struct bt_node *left;
-    struct bt_node *right;
+    binary_tree left;
+    binary_tree right;
 };
+
+#define BT_EMPTY NULL
 
 static binary_tree create_node(int value)
 {
     binary_tree new_node = malloc(sizeof *new_node);
     new_node->value = value;
-    new_node->left = NULL;
-    new_node->right = NULL;
+    new_node->left = BT_EMPTY;
+    new_node->right = BT_EMPTY;
     return new_node;
 }
 
@@ -47,7 +49,7 @@ static binary_tree insert_new_node(binary_tree tree, int value)
 
 binary_tree bt_create(void)
 {
-    return NULL;
+    return BT_EMPTY;
 }
 
 binary_tree bt_create_with_values(unsigned int count, ...)
@@ -74,7 +76,7 @@ void bt_free(binary_tree tree)
 
 _Bool bt_is_empty(binary_tree const tree)
 {
-    return tree == NULL;
+    return tree == BT_EMPTY;
 }
 
 binary_tree bt_insert(binary_tree tree, int value)

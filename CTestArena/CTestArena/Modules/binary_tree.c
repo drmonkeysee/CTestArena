@@ -47,6 +47,51 @@ static binary_tree insert_new_node(binary_tree tree, int value)
     return inserted_node;
 }
 
+static binary_tree *find_child_slot(binary_tree parent, int value)
+{
+    binary_tree *slot_to_check = parent->value > value ? &parent->left : &parent->right;
+    if (!(*slot_to_check) || (*slot_to_check)->value == value)
+        return slot_to_check;
+    return find_child_slot(*slot_to_check, value);
+}
+
+static binary_tree minimum_child(binary_tree tree)
+{
+    binary_tree minimum_child = tree;
+    while (minimum_child->left)
+        minimum_child = minimum_child->left;
+    return minimum_child;
+}
+
+static binary_tree remove_node(binary_tree tree, int value)
+{
+    binary_tree *removed_node_slot = find_child_slot(tree, value);
+    binary_tree removed_node = *removed_node_slot;
+    
+    if (!removed_node)
+        return BT_EMPTY;
+    
+    if (removed_node->left && removed_node->right) {
+        binary_tree successor = minimum_child(removed_node->right);
+        removed_node->value = successor->value;
+        bt_remove(removed_node->right, successor->value);
+    } else if (removed_node->left) {
+        // this may be a bug, setting remove_node->left may blow away left child of newly moved node
+        *removed_node_slot = removed_node->left;
+        removed_node->left = BT_EMPTY;
+        bt_free(removed_node);
+    } else if (removed_node->right) {
+        *removed_node_slot = removed_node->right;
+        removed_node->right = BT_EMPTY;
+        bt_free(removed_node);
+    } else {
+        *removed_node_slot = BT_EMPTY;
+        bt_free(removed_node);
+    }
+    
+    return *removed_node_slot;
+}
+
 binary_tree bt_create(void)
 {
     return BT_EMPTY;
@@ -85,4 +130,14 @@ binary_tree bt_insert(binary_tree tree, int value)
         return create_node(value);
     
     return insert_new_node(tree, value);
+}
+
+binary_tree bt_remove(binary_tree tree, int value)
+{
+    if (!tree || tree->value == value) {
+        bt_free(tree);
+        return BT_EMPTY;
+    }
+    
+    return remove_node(tree, value);
 }

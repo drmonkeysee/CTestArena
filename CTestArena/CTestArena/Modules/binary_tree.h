@@ -18,8 +18,7 @@ binary_tree bt_create(void);
 /* Create a binary tree with the given values.
  * The values are inserted in the order they are passed.
  * This may result in a wildly imbalanced tree.
- * Use bt_rebalance() to fix-up the tree after creation.
- */
+ * Use bt_rebalance() to fix-up the tree after creation. */
 binary_tree bt_create_with_values(unsigned int, ...);
 
 /* Free a binary tree. */
@@ -28,16 +27,11 @@ void bt_free(binary_tree);
 /* Is the binary tree empty? */
 _Bool bt_is_empty(binary_tree const);
 
-/* Insert value into binary tree.
- * Returns the new node inserted into the tree.
- */
-binary_tree bt_insert(binary_tree, int);
+/* Insert value into binary tree. */
+void bt_insert(binary_tree, int);
 
-/* Remove value from binary tree.
- * Returns the tree node that replaced the element just removed.
- * If the node removed was a leaf node then the return value will be the empty binary tree.
- */
-binary_tree bt_remove(binary_tree, int);
+/* Remove value from binary tree. */
+void bt_remove(binary_tree, int);
 
 /* Does tree contain value? */
 _Bool bt_contains(binary_tree const, int);

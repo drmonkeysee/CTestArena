@@ -30,10 +30,10 @@ static binary_tree create_node(int value)
 
 static binary_tree *find_child_slot(binary_tree parent, int value)
 {
-    binary_tree *slot_to_check = parent->value > value ? &parent->left : &parent->right;
-    if (!(*slot_to_check) || (*slot_to_check)->value == value)
-        return slot_to_check;
-    return find_child_slot(*slot_to_check, value);
+    binary_tree *child_slot = parent->value > value ? &parent->left : &parent->right;
+    if (!(*child_slot) || (*child_slot)->value == value)
+        return child_slot;
+    return find_child_slot(*child_slot, value);
 }
 
 static binary_tree minimum_child(binary_tree tree)
@@ -44,33 +44,31 @@ static binary_tree minimum_child(binary_tree tree)
     return minimum_child;
 }
 
-static binary_tree remove_node(binary_tree tree, int value)
+static void remove_node(binary_tree tree, int value)
 {
-    binary_tree *removed_node_slot = find_child_slot(tree, value);
-    binary_tree removed_node = *removed_node_slot;
+    binary_tree *node_slot = find_child_slot(tree, value);
+    binary_tree node = *node_slot;
     
-    if (!removed_node)
-        return BT_EMPTY;
+    if (!node)
+        return;
     
-    if (removed_node->left && removed_node->right) {
-        binary_tree successor = minimum_child(removed_node->right);
-        removed_node->value = successor->value;
-        bt_remove(removed_node->right, successor->value);
-    } else if (removed_node->left) {
+    if (node->left && node->right) {
+        binary_tree successor = minimum_child(node->right);
+        node->value = successor->value;
+        bt_remove(&node->right, successor->value);
+    } else if (node->left) {
         // this may be a bug, setting remove_node->left may blow away left child of newly moved node
-        *removed_node_slot = removed_node->left;
-        removed_node->left = BT_EMPTY;
-        bt_free(removed_node);
-    } else if (removed_node->right) {
-        *removed_node_slot = removed_node->right;
-        removed_node->right = BT_EMPTY;
-        bt_free(removed_node);
+        *node_slot = node->left;
+        node->left = BT_EMPTY;
+        bt_free(node);
+    } else if (node->right) {
+        *node_slot = node->right;
+        node->right = BT_EMPTY;
+        bt_free(node);
     } else {
-        *removed_node_slot = BT_EMPTY;
-        bt_free(removed_node);
+        *node_slot = BT_EMPTY;
+        bt_free(node);
     }
-    
-    return *removed_node_slot;
 }
 
 binary_tree bt_create(void)
@@ -118,10 +116,15 @@ void bt_insert(binary_tree *tree, int value)
         bt_insert(&(*tree)->right, value);
 }
 
-void bt_remove(binary_tree tree, int value)
+void bt_remove(binary_tree *tree, int value)
 {
-    if (!tree || tree->value == value)
-        bt_free(tree);
+    if (!tree)
+        return;
     
-    remove_node(tree, value);
+    if (!*tree || (*tree)->value == value) {
+        bt_free(*tree);
+        *tree = BT_EMPTY;
+    }
+    
+    remove_node(*tree, value);
 }

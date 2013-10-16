@@ -31,7 +31,7 @@ _Bool bt_is_empty(binary_tree);
 void bt_insert(binary_tree *, int);
 
 /* Remove value from binary tree. */
-void bt_remove(binary_tree, int);
+void bt_remove(binary_tree *, int);
 
 /* Does tree contain value? */
 _Bool bt_contains(binary_tree, int);

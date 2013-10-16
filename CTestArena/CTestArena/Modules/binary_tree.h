@@ -28,7 +28,7 @@ void bt_free(binary_tree);
 _Bool bt_is_empty(binary_tree);
 
 /* Insert value into binary tree. */
-void bt_insert(binary_tree, int);
+void bt_insert(binary_tree *, int);
 
 /* Remove value from binary tree. */
 void bt_remove(binary_tree, int);
@@ -45,6 +45,7 @@ int bt_size(binary_tree);
 /* The maximum depth of the binary tree. */
 int bt_depth(binary_tree);
 
+/* print the tree (in order?) */
 void bt_print(binary_tree);
 
 #endif

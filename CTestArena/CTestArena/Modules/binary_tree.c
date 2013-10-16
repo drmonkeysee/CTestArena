@@ -119,7 +119,7 @@ void bt_free(binary_tree tree)
     free(tree);
 }
 
-_Bool bt_is_empty(binary_tree const tree)
+_Bool bt_is_empty(binary_tree tree)
 {
     return tree == BT_EMPTY;
 }

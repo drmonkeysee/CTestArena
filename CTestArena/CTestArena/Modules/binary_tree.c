@@ -118,12 +118,10 @@ void bt_insert(binary_tree *tree, int value)
         bt_insert(&(*tree)->right, value);
 }
 
-binary_tree bt_remove(binary_tree tree, int value)
+void bt_remove(binary_tree tree, int value)
 {
-    if (!tree || tree->value == value) {
+    if (!tree || tree->value == value)
         bt_free(tree);
-        return BT_EMPTY;
-    }
     
-    return remove_node(tree, value);
+    remove_node(tree, value);
 }

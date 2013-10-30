@@ -12,13 +12,13 @@
 
 #include "binary_tree.h"
 
+#define BT_EMPTY NULL
+
 struct bt_node {
     int value;
     binary_tree left;
     binary_tree right;
 };
-
-#define BT_EMPTY NULL
 
 static binary_tree create_node(int value)
 {

@@ -45,7 +45,7 @@ int bt_size(binary_tree);
 /* The maximum depth of the binary tree. */
 int bt_depth(binary_tree);
 
-/* print the tree (in order?) */
+/* print the tree */
 void bt_print(binary_tree);
 
 #endif

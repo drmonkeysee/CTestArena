@@ -12,8 +12,11 @@ A few of the techniques I want to explore in this project:
     * should binary\_tree ever be a \* const?
 * explore the interplay between xcode projects and workspaces
 * play with unit-testing
+    * [Unity]/CMock
+    * CTest
 * building linked libraries as static libraries and as frameworks (to limit public header exposure)
 * playing with cmake and using it to generate xcode stuff
 * compiler agnostic macros (e.g. #pragma mark vs. #pragma region)
 
 [SDL]: http://www.libsdl.org/
+[Unity]: http://throwtheswitch.org

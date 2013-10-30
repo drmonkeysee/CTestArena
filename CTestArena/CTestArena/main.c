@@ -14,6 +14,8 @@
 void binarytrees(void)
 {
     printf("-- binarytrees --\n");
+    binary_tree my_tree = bt_create_with_values(9, 8, 5, 10, 3, 4, 12, 9, 15, 2);
+    bt_print(my_tree);
 }
 
 void compare_sizeof(void)

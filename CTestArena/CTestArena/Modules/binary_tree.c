@@ -8,6 +8,7 @@
 
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 #include "binary_tree.h"
 
@@ -71,6 +72,18 @@ static void remove_node(binary_tree tree, int value)
     }
 }
 
+static void print_tree(binary_tree tree, unsigned int indent)
+{
+    if (!tree)
+        return;
+    
+    for (unsigned int indent_count = indent; indent_count > 0; --indent_count)
+        printf("\t");
+    printf("%d\n", tree->value);
+    print_tree(tree->left, indent + 1);
+    print_tree(tree->right, indent + 1);
+}
+
 binary_tree bt_create(void)
 {
     return BT_EMPTY;
@@ -127,4 +140,9 @@ void bt_remove(binary_tree *tree, int value)
     }
     
     remove_node(*tree, value);
+}
+
+void bt_print(binary_tree tree)
+{
+    print_tree(tree, 0);
 }

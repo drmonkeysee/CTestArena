@@ -14,7 +14,26 @@
 void binarytrees(void)
 {
     printf("-- binarytrees --\n");
+    printf("New tree:\n");
     binary_tree my_tree = bt_create_with_values(9, 8, 5, 10, 3, 4, 12, 9, 15, 2);
+    bt_print(my_tree);
+    printf("Insert 11:\n");
+    bt_insert(&my_tree, 11);
+    bt_print(my_tree);
+    printf("Insert existing value (10):\n");
+    bt_insert(&my_tree, 10);
+    bt_print(my_tree);
+    printf("Remove leaf node (4):\n");
+    bt_remove(&my_tree, 4);
+    bt_print(my_tree);
+    printf("Remove node with two children (10):\n");
+    bt_remove(&my_tree, 10);
+    bt_print(my_tree);
+    printf("Remove node with left child (3):\n");
+    bt_remove(&my_tree, 3);
+    bt_print(my_tree);
+    printf("Remove node with right child (12):\n");
+    bt_remove(&my_tree, 12);
     bt_print(my_tree);
 }
 

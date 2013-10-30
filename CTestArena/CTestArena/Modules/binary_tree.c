@@ -58,7 +58,6 @@ static void remove_node(binary_tree tree, int value)
         node->value = successor->value;
         bt_remove(&node->right, successor->value);
     } else if (node->left) {
-        // this may be a bug, setting remove_node->left may blow away left child of newly moved node
         *node_slot = node->left;
         node->left = BT_EMPTY;
         bt_free(node);
@@ -72,16 +71,16 @@ static void remove_node(binary_tree tree, int value)
     }
 }
 
-static void print_tree(binary_tree tree, unsigned int indent)
+static void print_tree(binary_tree tree, unsigned int indent, char label)
 {
     if (!tree)
         return;
     
     for (unsigned int indent_count = indent; indent_count > 0; --indent_count)
         printf("\t");
-    printf("%d\n", tree->value);
-    print_tree(tree->left, indent + 1);
-    print_tree(tree->right, indent + 1);
+    printf("%c%d\n", label, tree->value);
+    print_tree(tree->left, indent + 1, 'L');
+    print_tree(tree->right, indent + 1, 'R');
 }
 
 binary_tree bt_create(void)
@@ -144,5 +143,5 @@ void bt_remove(binary_tree *tree, int value)
 
 void bt_print(binary_tree tree)
 {
-    print_tree(tree, 0);
+    print_tree(tree, 0, 'T');
 }

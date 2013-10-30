@@ -40,10 +40,10 @@ _Bool bt_contains(binary_tree, int);
 binary_tree bt_rebalance(binary_tree);
 
 /* The number of elements contained in the binary tree. */
-int bt_size(binary_tree);
+unsigned int bt_size(binary_tree);
 
 /* The maximum depth of the binary tree. */
-int bt_depth(binary_tree);
+unsigned int bt_depth(binary_tree);
 
 /* print the tree */
 void bt_print(binary_tree);

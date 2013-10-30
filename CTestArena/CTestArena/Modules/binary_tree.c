@@ -145,3 +145,14 @@ void bt_print(binary_tree tree)
 {
     print_tree(tree, 0, 'T');
 }
+
+unsigned int bt_size(binary_tree tree)
+{
+    unsigned int size = 0;
+    if (tree) {
+        ++size;
+        size += bt_size(tree->left);
+        size += bt_size(tree->right);
+    }
+    return size;
+}

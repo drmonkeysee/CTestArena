@@ -14,9 +14,14 @@
 void binarytrees(void)
 {
     printf("-- binarytrees --\n");
+    printf("Empty tree:\n");
+    binary_tree empty_tree = bt_create();
+    bt_print(empty_tree);
+    printf("Empty tree size: %u\n", bt_size(empty_tree));
     printf("New tree:\n");
     binary_tree my_tree = bt_create_with_values(9, 8, 5, 10, 3, 4, 12, 9, 15, 2);
     bt_print(my_tree);
+    printf("Tree size: %u\n", bt_size(my_tree));
     printf("Insert 11:\n");
     bt_insert(&my_tree, 11);
     bt_print(my_tree);
@@ -35,6 +40,7 @@ void binarytrees(void)
     printf("Remove node with right child (12):\n");
     bt_remove(&my_tree, 12);
     bt_print(my_tree);
+    printf("Final tree size: %u\n", bt_size(my_tree));
 }
 
 void compare_sizeof(void)

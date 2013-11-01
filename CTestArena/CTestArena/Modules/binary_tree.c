@@ -141,11 +141,6 @@ void bt_remove(binary_tree *tree, int value)
     remove_node(*tree, value);
 }
 
-void bt_print(binary_tree tree)
-{
-    print_tree(tree, 0, 'T');
-}
-
 unsigned int bt_size(binary_tree tree)
 {
     unsigned int size = 0;
@@ -165,4 +160,9 @@ unsigned int bt_depth(binary_tree tree)
     unsigned int left_depth = bt_depth(tree->left);
     unsigned int right_depth = bt_depth(tree->right);
     return (left_depth > right_depth ? left_depth : right_depth) + 1;
+}
+
+void bt_print(binary_tree tree)
+{
+    print_tree(tree, 0, 'T');
 }

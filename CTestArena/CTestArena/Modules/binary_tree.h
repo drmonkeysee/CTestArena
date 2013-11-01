@@ -37,7 +37,7 @@ void bt_remove(binary_tree *, int);
 _Bool bt_contains(binary_tree, int);
 
 /* Convert the existing tree into a balanced tree (what happens to original tree?) */
-binary_tree bt_rebalance(binary_tree);
+void bt_rebalance(binary_tree *);
 
 /* The number of elements contained in the binary tree. */
 unsigned int bt_size(binary_tree);

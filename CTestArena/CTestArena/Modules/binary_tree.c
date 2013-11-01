@@ -84,6 +84,17 @@ static void print_tree(binary_tree tree, unsigned int indent, char label)
     print_tree(tree->right, indent + 1, 'R');
 }
 
+static void inline_tree(binary_tree tree, binary_tree nodes[], unsigned int *current_index)
+{
+    if (tree->left)
+        inline_tree(tree->left, nodes, current_index);
+    
+    nodes[(*current_index)++] = tree;
+    
+    if (tree->right)
+        inline_tree(tree->right, nodes, current_index);
+}
+
 binary_tree bt_create(void)
 {
     return BT_EMPTY;
@@ -152,6 +163,28 @@ _Bool bt_contains(binary_tree tree, int value)
     
     binary_tree *child_slot = find_child_slot(tree, value);
     return *child_slot;
+}
+
+void bt_rebalance(binary_tree *tree)
+{
+    if (!*tree)
+        return;
+    // extract a sorted array from the tree
+    // insert the middle element
+    // recursively insert the middle element of the left array and right array
+    unsigned int size = bt_size(*tree);
+    binary_tree sorted_nodes[size];
+    unsigned int start = 0;
+    unsigned int end = size - 1;
+    unsigned int current_index = start;
+    inline_tree(*tree, sorted_nodes, &current_index);
+    printf("Inlined tree: [");
+    for (unsigned int i = start; i < size; ++i) {
+        printf("%u", sorted_nodes[i]->value);
+        if (i < end)
+            printf(", ");
+    }
+    printf("]\n");
 }
 
 unsigned int bt_size(binary_tree tree)

@@ -26,6 +26,7 @@ void binarytrees(void)
     printf("Tree size: %u\n", bt_size(my_tree));
     printf("Tree depth: %u\n", bt_depth(my_tree));
     printf("Tree contains 12?: %s\n", bt_contains(my_tree, 12) ? "Yes" : "No");
+    bt_rebalance(&my_tree);
     printf("Insert 11:\n");
     bt_insert(&my_tree, 11);
     bt_print(my_tree);

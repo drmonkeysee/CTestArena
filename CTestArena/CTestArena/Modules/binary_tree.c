@@ -95,6 +95,15 @@ static void inline_tree(binary_tree tree, binary_tree nodes[], unsigned int *cur
         inline_tree(tree->right, nodes, current_index);
 }
 
+static binary_tree rebalance_node(binary_tree node_list[], unsigned int start_index, unsigned int end_index)
+{
+    unsigned int middle_index = end_index / 2;
+    binary_tree node = node_list[middle_index];
+    node->left = rebalance_node(node_list, start_index, middle_index);
+    node->right = rebalance_node(node_list, middle_index, end_index);
+    return node;
+}
+
 binary_tree bt_create(void)
 {
     return BT_EMPTY;
@@ -169,9 +178,6 @@ void bt_rebalance(binary_tree *tree)
 {
     if (!*tree)
         return;
-    // extract a sorted array from the tree
-    // insert the middle element
-    // recursively insert the middle element of the left array and right array
     unsigned int size = bt_size(*tree);
     binary_tree sorted_nodes[size];
     unsigned int start = 0;
@@ -185,6 +191,8 @@ void bt_rebalance(binary_tree *tree)
             printf(", ");
     }
     printf("]\n");
+    // insert the middle element
+    // recursively insert the middle element of the left array and right array
 }
 
 unsigned int bt_size(binary_tree tree)

@@ -19,11 +19,13 @@ void binarytrees(void)
     bt_print(empty_tree);
     printf("Empty tree size: %u\n", bt_size(empty_tree));
     printf("Empty tree depth: %u\n", bt_depth(empty_tree));
+    printf("Empty tree contains 3?: %s\n", bt_contains(empty_tree, 3) ? "Yes" : "No");
     printf("New tree:\n");
     binary_tree my_tree = bt_create_with_values(9, 8, 5, 10, 3, 4, 12, 9, 15, 2);
     bt_print(my_tree);
     printf("Tree size: %u\n", bt_size(my_tree));
     printf("Tree depth: %u\n", bt_depth(my_tree));
+    printf("Tree contains 12?: %s\n", bt_contains(my_tree, 12) ? "Yes" : "No");
     printf("Insert 11:\n");
     bt_insert(&my_tree, 11);
     bt_print(my_tree);
@@ -44,6 +46,7 @@ void binarytrees(void)
     bt_print(my_tree);
     printf("Final tree size: %u\n", bt_size(my_tree));
     printf("Final tree depth: %u\n", bt_depth(my_tree));
+    printf("Final tree contains 12?: %s\n", bt_contains(my_tree, 12) ? "Yes" : "No");
 }
 
 void compare_sizeof(void)

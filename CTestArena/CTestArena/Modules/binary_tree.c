@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "binary_tree.h"
 
@@ -139,6 +140,18 @@ void bt_remove(binary_tree *tree, int value)
     }
     
     remove_node(*tree, value);
+}
+
+_Bool bt_contains(binary_tree tree, int value)
+{
+    if (!tree)
+        return false;
+    
+    if (tree->value == value)
+        return true;
+    
+    binary_tree *child_slot = find_child_slot(tree, value);
+    return *child_slot;
 }
 
 unsigned int bt_size(binary_tree tree)

@@ -156,3 +156,13 @@ unsigned int bt_size(binary_tree tree)
     }
     return size;
 }
+
+unsigned int bt_depth(binary_tree tree)
+{
+    if (!tree)
+        return 0;
+    
+    unsigned int left_depth = bt_depth(tree->left);
+    unsigned int right_depth = bt_depth(tree->right);
+    return (left_depth > right_depth ? left_depth : right_depth) + 1;
+}

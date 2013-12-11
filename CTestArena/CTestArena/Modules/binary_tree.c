@@ -157,6 +157,7 @@ void bt_remove(binary_tree *tree, int value)
     if (!*tree || (*tree)->value == value) {
         bt_free(*tree);
         *tree = BT_EMPTY;
+        return;
     }
     
     remove_node(*tree, value);

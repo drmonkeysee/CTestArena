@@ -95,12 +95,18 @@ static void inline_tree(binary_tree tree, binary_tree nodes[], int *current_inde
         inline_tree(tree->right, nodes, current_index);
 }
 
-static binary_tree rebalance_node(binary_tree node_list[], unsigned int start_index, unsigned int end_index)
+static binary_tree rebalance_node(binary_tree node_list[], int start_index, int end_index)
 {
-    unsigned int middle_index = end_index / 2;
+    if (start_index > end_index)
+        return BT_EMPTY;
+    
+    int distance = end_index - start_index;
+    int middle_index = start_index + (distance / 2);
     binary_tree node = node_list[middle_index];
-    node->left = rebalance_node(node_list, start_index, middle_index);
-    node->right = rebalance_node(node_list, middle_index, end_index);
+    
+    node->left = rebalance_node(node_list, start_index, middle_index - 1);
+    node->right = rebalance_node(node_list, middle_index + 1, end_index);
+    
     return node;
 }
 

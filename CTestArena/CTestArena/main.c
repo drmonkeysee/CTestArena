@@ -14,12 +14,15 @@
 void binarytrees(void)
 {
     printf("-- binarytrees --\n");
+    
     printf("Empty tree:\n");
     binary_tree empty_tree = bt_create();
     bt_print(empty_tree);
     printf("Empty tree size: %lu\n", bt_size(empty_tree));
     printf("Empty tree depth: %lu\n", bt_depth(empty_tree));
     printf("Empty tree contains 3?: %s\n", bt_contains(empty_tree, 3) ? "Yes" : "No");
+    bt_free(empty_tree);
+    
     printf("New tree:\n");
     binary_tree my_tree = bt_create_with_values(9, 8, 5, 10, 3, 4, 12, 9, 15, 2);
     bt_print(my_tree);
@@ -47,12 +50,15 @@ void binarytrees(void)
     printf("Final tree size: %lu\n", bt_size(my_tree));
     printf("Final tree depth: %lu\n", bt_depth(my_tree));
     printf("Final tree contains 12?: %s\n", bt_contains(my_tree, 12) ? "Yes" : "No");
+    bt_free(my_tree);
+    
     binary_tree wack_tree = bt_create_with_values(12, 1, 2, 3, 6, 5, 4, 10, 11, 12, 13, 14, 15);
     printf("This tree is wack:\n");
     bt_print(wack_tree);
     bt_rebalance(&wack_tree);
     printf("The wack tree has been rebalanced:\n");
     bt_print(wack_tree);
+    bt_free(wack_tree);
 }
 
 void compare_sizeof(void)

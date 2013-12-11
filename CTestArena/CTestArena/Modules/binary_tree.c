@@ -195,9 +195,9 @@ void bt_rebalance(binary_tree *tree)
     // recursively insert the middle element of the left array and right array
 }
 
-int bt_size(binary_tree tree)
+size_t bt_size(binary_tree tree)
 {
-    int size = 0;
+    size_t size = 0;
     if (tree) {
         ++size;
         size += bt_size(tree->left);
@@ -206,13 +206,13 @@ int bt_size(binary_tree tree)
     return size;
 }
 
-int bt_depth(binary_tree tree)
+size_t bt_depth(binary_tree tree)
 {
     if (!tree)
         return 0;
     
-    int left_depth = bt_depth(tree->left);
-    int right_depth = bt_depth(tree->right);
+    size_t left_depth = bt_depth(tree->left);
+    size_t right_depth = bt_depth(tree->right);
     return (left_depth > right_depth ? left_depth : right_depth) + 1;
 }
 

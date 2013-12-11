@@ -72,19 +72,19 @@ static void remove_node(binary_tree tree, int value)
     }
 }
 
-static void print_tree(binary_tree tree, unsigned int indent, char label)
+static void print_tree(binary_tree tree, int indent, char label)
 {
     if (!tree)
         return;
     
-    for (unsigned int indent_count = indent; indent_count > 0; --indent_count)
+    for (int indent_count = indent; indent_count > 0; --indent_count)
         printf("\t");
     printf("%c%d\n", label, tree->value);
     print_tree(tree->left, indent + 1, 'L');
     print_tree(tree->right, indent + 1, 'R');
 }
 
-static void inline_tree(binary_tree tree, binary_tree nodes[], unsigned int *current_index)
+static void inline_tree(binary_tree tree, binary_tree nodes[], int *current_index)
 {
     if (tree->left)
         inline_tree(tree->left, nodes, current_index);
@@ -109,13 +109,13 @@ binary_tree bt_create(void)
     return BT_EMPTY;
 }
 
-binary_tree bt_create_with_values(unsigned int count, ...)
+binary_tree bt_create_with_values(int count, ...)
 {
     binary_tree new_tree = bt_create();
     
     va_list args;
     va_start(args, count);
-    for (unsigned int i = 0; i < count; ++i)
+    for (int i = 0; i < count; ++i)
         bt_insert(&new_tree, va_arg(args, int));
     va_end(args);
     
@@ -178,14 +178,14 @@ void bt_rebalance(binary_tree *tree)
 {
     if (!*tree)
         return;
-    unsigned int size = bt_size(*tree);
+    int size = bt_size(*tree);
     binary_tree sorted_nodes[size];
-    unsigned int start = 0;
-    unsigned int end = size - 1;
-    unsigned int current_index = start;
+    int start = 0;
+    int end = size - 1;
+    int current_index = start;
     inline_tree(*tree, sorted_nodes, &current_index);
     printf("Inlined tree: [");
-    for (unsigned int i = start; i < size; ++i) {
+    for (int i = start; i < size; ++i) {
         printf("%u", sorted_nodes[i]->value);
         if (i < end)
             printf(", ");
@@ -195,9 +195,9 @@ void bt_rebalance(binary_tree *tree)
     // recursively insert the middle element of the left array and right array
 }
 
-unsigned int bt_size(binary_tree tree)
+int bt_size(binary_tree tree)
 {
-    unsigned int size = 0;
+    int size = 0;
     if (tree) {
         ++size;
         size += bt_size(tree->left);
@@ -206,13 +206,13 @@ unsigned int bt_size(binary_tree tree)
     return size;
 }
 
-unsigned int bt_depth(binary_tree tree)
+int bt_depth(binary_tree tree)
 {
     if (!tree)
         return 0;
     
-    unsigned int left_depth = bt_depth(tree->left);
-    unsigned int right_depth = bt_depth(tree->right);
+    int left_depth = bt_depth(tree->left);
+    int right_depth = bt_depth(tree->right);
     return (left_depth > right_depth ? left_depth : right_depth) + 1;
 }
 

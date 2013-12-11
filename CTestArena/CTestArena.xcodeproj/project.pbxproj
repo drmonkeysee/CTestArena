@@ -29,8 +29,8 @@
 		02C3A84D1800C64A00E86DAF /* CTestArena */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CTestArena; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3A8501800C64A00E86DAF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		02C3A8521800C64A00E86DAF /* CTestArena.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CTestArena.1; sourceTree = "<group>"; };
-		02C3A85B1800CA2800E86DAF /* binary_tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = binary_tree.h; sourceTree = "<group>"; };
-		02C3A85C1800CA3800E86DAF /* binary_tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = binary_tree.c; sourceTree = "<group>"; };
+		02C3A85B1800CA2800E86DAF /* binary_tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = binary_tree.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		02C3A85C1800CA3800E86DAF /* binary_tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; lineEnding = 0; path = binary_tree.c; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

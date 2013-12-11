@@ -44,9 +44,15 @@ void binarytrees(void)
     printf("Remove node with right child (12):\n");
     bt_remove(&my_tree, 12);
     bt_print(my_tree);
-    printf("Final tree size: %u\n", bt_size(my_tree));
-    printf("Final tree depth: %u\n", bt_depth(my_tree));
+    printf("Final tree size: %lu\n", bt_size(my_tree));
+    printf("Final tree depth: %lu\n", bt_depth(my_tree));
     printf("Final tree contains 12?: %s\n", bt_contains(my_tree, 12) ? "Yes" : "No");
+    binary_tree wack_tree = bt_create_with_values(12, 1, 2, 3, 6, 5, 4, 10, 11, 12, 13, 14, 15);
+    printf("This tree is wack:\n");
+    bt_print(wack_tree);
+    bt_rebalance(&wack_tree);
+    printf("The wack tree has been rebalanced:\n");
+    bt_print(wack_tree);
 }
 
 void compare_sizeof(void)

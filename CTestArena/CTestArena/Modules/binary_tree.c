@@ -185,21 +185,16 @@ void bt_rebalance(binary_tree *tree)
 {
     if (!*tree)
         return;
-    int size = bt_size(*tree);
+
+    size_t size = bt_size(*tree);
     binary_tree sorted_nodes[size];
+    
     int start = 0;
-    int end = size - 1;
+    int end = size - 1; // TODO: fix the widths between the rebalance indexes and the size values
     int current_index = start;
     inline_tree(*tree, sorted_nodes, &current_index);
-    printf("Inlined tree: [");
-    for (int i = start; i < size; ++i) {
-        printf("%u", sorted_nodes[i]->value);
-        if (i < end)
-            printf(", ");
-    }
-    printf("]\n");
-    // insert the middle element
-    // recursively insert the middle element of the left array and right array
+    
+    *tree = rebalance_node(sorted_nodes, start, end);
 }
 
 size_t bt_size(binary_tree tree)

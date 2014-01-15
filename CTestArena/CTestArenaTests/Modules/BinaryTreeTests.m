@@ -19,7 +19,8 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    tree = bt_create();
 }
 
 - (void)tearDown
@@ -31,9 +32,17 @@
 
 - (void)test_btcreate_CreatesEmptyTree
 {
-    tree = bt_create();
-    
     XCTAssertTrue(bt_is_empty(tree));
+}
+
+- (void)test_btsize_ReturnsZero_IfEmptyTree
+{
+    XCTAssertEqual(0lu, bt_size(tree));
+}
+
+- (void)test_btdepth_ReturnsZero_IfEmptyTree
+{
+    XCTAssertEqual(0lu, bt_depth(tree));
 }
 
 @end

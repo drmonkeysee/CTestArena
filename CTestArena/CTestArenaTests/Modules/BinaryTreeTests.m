@@ -9,7 +9,9 @@
 #include "binary_tree.h"
 
 @interface BinaryTreeTests : XCTestCase
-
+{
+    binary_tree tree;
+}
 @end
 
 @implementation BinaryTreeTests
@@ -22,13 +24,16 @@
 
 - (void)tearDown
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    bt_free(tree);
+    
     [super tearDown];
 }
 
-- (void)testExample
+- (void)test_btcreate_CreatesEmptyTree
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    tree = bt_create();
+    
+    XCTAssertTrue(bt_is_empty(tree));
 }
 
 @end

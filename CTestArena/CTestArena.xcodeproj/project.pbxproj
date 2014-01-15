@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		026AC6A718864616007EB6F1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 026AC6A618864616007EB6F1 /* XCTest.framework */; };
 		026AC6AD18864616007EB6F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 026AC6AB18864616007EB6F1 /* InfoPlist.strings */; };
+		026AC6C418864AEF007EB6F1 /* BinaryTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */; };
 		02C3A8511800C64A00E86DAF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A8501800C64A00E86DAF /* main.c */; };
 		02C3A8531800C64A00E86DAF /* CTestArena.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C3A8521800C64A00E86DAF /* CTestArena.1 */; };
 		02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
@@ -43,6 +44,7 @@
 		026AC6AA18864616007EB6F1 /* CTestArenaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CTestArenaTests-Info.plist"; sourceTree = "<group>"; };
 		026AC6AC18864616007EB6F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		026AC6B018864616007EB6F1 /* CTestArenaTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTestArenaTests-Prefix.pch"; sourceTree = "<group>"; };
+		026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryTreeTests.m; sourceTree = "<group>"; };
 		02C3A84D1800C64A00E86DAF /* CTestArena */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CTestArena; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3A8501800C64A00E86DAF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		02C3A8521800C64A00E86DAF /* CTestArena.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CTestArena.1; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		026AC6A818864616007EB6F1 /* CTestArenaTests */ = {
 			isa = PBXGroup;
 			children = (
+				026AC6C018864AD2007EB6F1 /* Modules */,
 				026AC6A918864616007EB6F1 /* Supporting Files */,
 			);
 			path = CTestArenaTests;
@@ -93,6 +96,14 @@
 				026AC6B018864616007EB6F1 /* CTestArenaTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		026AC6C018864AD2007EB6F1 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		02C3A8441800C64A00E86DAF = {
@@ -219,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				026AC6C418864AEF007EB6F1 /* BinaryTreeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

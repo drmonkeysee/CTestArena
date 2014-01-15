@@ -14,6 +14,8 @@ A few of the techniques I want to explore in this project:
 * play with unit-testing
     * [Unity]/CMock
     * CTest
+    * CUnit
+    * googletest
 * building linked libraries as static libraries and as frameworks (to limit public header exposure)
 * playing with cmake and using it to generate xcode stuff
 * compiler agnostic macros (e.g. #pragma mark vs. #pragma region)

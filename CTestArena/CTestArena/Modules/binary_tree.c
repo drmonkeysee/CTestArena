@@ -10,6 +10,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <stddef.h>
 
 #include "binary_tree.h"
 
@@ -84,7 +85,7 @@ static void print_tree(binary_tree tree, int indent, char label)
     print_tree(tree->right, indent + 1, 'R');
 }
 
-static void inline_tree(binary_tree tree, binary_tree nodes[], int *current_index)
+static void inline_tree(binary_tree tree, binary_tree nodes[], ptrdiff_t *current_index)
 {
     if (tree->left)
         inline_tree(tree->left, nodes, current_index);
@@ -95,13 +96,13 @@ static void inline_tree(binary_tree tree, binary_tree nodes[], int *current_inde
         inline_tree(tree->right, nodes, current_index);
 }
 
-static binary_tree rebalance_node(binary_tree node_list[], int start_index, int end_index)
+static binary_tree rebalance_node(binary_tree node_list[], ptrdiff_t start_index, ptrdiff_t end_index)
 {
     if (start_index > end_index)
         return BT_EMPTY;
     
-    int distance = end_index - start_index;
-    int middle_index = start_index + (distance / 2);
+    ptrdiff_t distance = end_index - start_index;
+    ptrdiff_t middle_index = start_index + (distance / 2);
     binary_tree node = node_list[middle_index];
     
     node->left = rebalance_node(node_list, start_index, middle_index - 1);
@@ -189,9 +190,9 @@ void bt_rebalance(binary_tree *tree)
     size_t size = bt_size(*tree);
     binary_tree sorted_nodes[size];
     
-    int start = 0;
-    int end = size - 1; // TODO: fix the widths between the rebalance indexes and the size values
-    int current_index = start;
+    ptrdiff_t start = 0;
+    ptrdiff_t end = size - 1;
+    ptrdiff_t current_index = start;
     inline_tree(*tree, sorted_nodes, &current_index);
     
     *tree = rebalance_node(sorted_nodes, start, end);

@@ -7,10 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		026AC6A718864616007EB6F1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 026AC6A618864616007EB6F1 /* XCTest.framework */; };
+		026AC6AD18864616007EB6F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 026AC6AB18864616007EB6F1 /* InfoPlist.strings */; };
 		02C3A8511800C64A00E86DAF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A8501800C64A00E86DAF /* main.c */; };
 		02C3A8531800C64A00E86DAF /* CTestArena.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C3A8521800C64A00E86DAF /* CTestArena.1 */; };
 		02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		026AC6B118864616007EB6F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02C3A8451800C64A00E86DAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02C3A84C1800C64A00E86DAF;
+			remoteInfo = CTestArena;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		02C3A84B1800C64A00E86DAF /* CopyFiles */ = {
@@ -26,6 +38,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		026AC6A418864616007EB6F1 /* CTestArenaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTestArenaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		026AC6A618864616007EB6F1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		026AC6AA18864616007EB6F1 /* CTestArenaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CTestArenaTests-Info.plist"; sourceTree = "<group>"; };
+		026AC6AC18864616007EB6F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		026AC6B018864616007EB6F1 /* CTestArenaTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTestArenaTests-Prefix.pch"; sourceTree = "<group>"; };
 		02C3A84D1800C64A00E86DAF /* CTestArena */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CTestArena; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3A8501800C64A00E86DAF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		02C3A8521800C64A00E86DAF /* CTestArena.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CTestArena.1; sourceTree = "<group>"; };
@@ -34,6 +51,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		026AC6A118864616007EB6F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				026AC6A718864616007EB6F1 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02C3A84A1800C64A00E86DAF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,10 +69,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		026AC6A518864616007EB6F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				026AC6A618864616007EB6F1 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		026AC6A818864616007EB6F1 /* CTestArenaTests */ = {
+			isa = PBXGroup;
+			children = (
+				026AC6A918864616007EB6F1 /* Supporting Files */,
+			);
+			path = CTestArenaTests;
+			sourceTree = "<group>";
+		};
+		026AC6A918864616007EB6F1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				026AC6AA18864616007EB6F1 /* CTestArenaTests-Info.plist */,
+				026AC6AB18864616007EB6F1 /* InfoPlist.strings */,
+				026AC6B018864616007EB6F1 /* CTestArenaTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		02C3A8441800C64A00E86DAF = {
 			isa = PBXGroup;
 			children = (
 				02C3A84F1800C64A00E86DAF /* CTestArena */,
+				026AC6A818864616007EB6F1 /* CTestArenaTests */,
+				026AC6A518864616007EB6F1 /* Frameworks */,
 				02C3A84E1800C64A00E86DAF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				02C3A84D1800C64A00E86DAF /* CTestArena */,
+				026AC6A418864616007EB6F1 /* CTestArenaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,6 +136,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		026AC6A318864616007EB6F1 /* CTestArenaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 026AC6B518864616007EB6F1 /* Build configuration list for PBXNativeTarget "CTestArenaTests" */;
+			buildPhases = (
+				026AC6A018864616007EB6F1 /* Sources */,
+				026AC6A118864616007EB6F1 /* Frameworks */,
+				026AC6A218864616007EB6F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				026AC6B218864616007EB6F1 /* PBXTargetDependency */,
+			);
+			name = CTestArenaTests;
+			productName = CTestArenaTests;
+			productReference = 026AC6A418864616007EB6F1 /* CTestArenaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		02C3A84C1800C64A00E86DAF /* CTestArena */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02C3A8561800C64A00E86DAF /* Build configuration list for PBXNativeTarget "CTestArena" */;
@@ -107,6 +179,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Monkey Bits";
+				TargetAttributes = {
+					026AC6A318864616007EB6F1 = {
+						TestTargetID = 02C3A84C1800C64A00E86DAF;
+					};
+				};
 			};
 			buildConfigurationList = 02C3A8481800C64A00E86DAF /* Build configuration list for PBXProject "CTestArena" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -121,11 +198,30 @@
 			projectRoot = "";
 			targets = (
 				02C3A84C1800C64A00E86DAF /* CTestArena */,
+				026AC6A318864616007EB6F1 /* CTestArenaTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		026AC6A218864616007EB6F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				026AC6AD18864616007EB6F1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		026AC6A018864616007EB6F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02C3A8491800C64A00E86DAF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,7 +233,62 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		026AC6B218864616007EB6F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02C3A84C1800C64A00E86DAF /* CTestArena */;
+			targetProxy = 026AC6B118864616007EB6F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		026AC6AB18864616007EB6F1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				026AC6AC18864616007EB6F1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		026AC6B318864616007EB6F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CTestArenaTests/CTestArenaTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CTestArenaTests/CTestArenaTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		026AC6B418864616007EB6F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CTestArenaTests/CTestArenaTests-Prefix.pch";
+				INFOPLIST_FILE = "CTestArenaTests/CTestArenaTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		02C3A8541800C64A00E86DAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -227,6 +378,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		026AC6B518864616007EB6F1 /* Build configuration list for PBXNativeTarget "CTestArenaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				026AC6B318864616007EB6F1 /* Debug */,
+				026AC6B418864616007EB6F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		02C3A8481800C64A00E86DAF /* Build configuration list for PBXProject "CTestArena" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -116,13 +116,13 @@ binary_tree bt_create(void)
     return BT_EMPTY;
 }
 
-binary_tree bt_create_with_values(int count, ...)
+binary_tree bt_create_with_values(size_t count, ...)
 {
     binary_tree new_tree = bt_create();
     
     va_list args;
     va_start(args, count);
-    for (int i = 0; i < count; ++i)
+    for (size_t i = 0; i < count; ++i)
         bt_insert(&new_tree, va_arg(args, int));
     va_end(args);
     

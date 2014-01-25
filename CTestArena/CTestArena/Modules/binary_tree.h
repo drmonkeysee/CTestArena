@@ -19,7 +19,7 @@ binary_tree bt_create(void);
  * The values are inserted in the order they are passed.
  * This may result in a wildly imbalanced tree.
  * Use bt_rebalance() to fix-up the tree after creation. */
-binary_tree bt_create_with_values(int, ...);
+binary_tree bt_create_with_values(size_t, ...);
 
 /* Free a binary tree. */
 void bt_free(binary_tree);

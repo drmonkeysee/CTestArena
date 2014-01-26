@@ -16,7 +16,9 @@ A few of the techniques I want to explore in this project:
     * CTest
     * CUnit
     * googletest
-    * cmockery
+    * cmockery/cmocka
+    * TestDept
+    * CppUTest
 * building linked libraries as static libraries and as frameworks (to limit public header exposure)
 * playing with cmake and using it to generate xcode stuff
 * compiler agnostic macros (e.g. #pragma mark vs. #pragma region)

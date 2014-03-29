@@ -146,12 +146,46 @@ void modify_pointer_arg(void)
 //    change_pointedto(foo);
 }
 
+typedef struct blah {
+    int value;
+} Blah;
+
+void const_params(const Blah *c_blah, Blah * const cp_blah)
+{
+//    c_blah->value = 28;
+    c_blah = NULL;
+    cp_blah->value = 100;
+//    cp_blah = NULL;
+}
+
+void const_typedefs(void)
+{
+    // these declarations are equivalent
+    // effectively const pointer
+    // can't do pointer to const tree but no need since tree definition is not available
+//    const binary_tree ct_tree = bt_create();
+//    binary_tree const tc_tree = bt_create();
+//    ct_tree = bt_create();
+//    tc_tree = bt_create();
+    Blah v_blah = { 12 };
+    const Blah *c_blah = &v_blah;
+//    c_blah->value = 40; can't do this
+    c_blah = NULL;
+    Blah * const cp_blah = &v_blah;
+    cp_blah->value = 20;
+//    cp_blah = NULL; can't do this
+    printf("Blah is %d\n", v_blah.value);
+    const_params(&v_blah, &v_blah);
+    printf("Blah is now %d\n", v_blah.value);
+}
+
 int main(int argc, const char *argv[])
 {
     binarytrees();
     compare_sizeof();
     reassign_struct_member();
     modify_pointer_arg();
+    const_typedefs();
     
     return EXIT_SUCCESS;
 }

@@ -149,7 +149,6 @@ void modify_pointer_arg(void)
 typedef struct blah {
     int value;
 } Blah;
-
 void const_params(const Blah *c_blah, Blah * const cp_blah)
 {
 //    c_blah->value = 28;
@@ -157,7 +156,6 @@ void const_params(const Blah *c_blah, Blah * const cp_blah)
     cp_blah->value = 100;
 //    cp_blah = NULL;
 }
-
 void const_typedefs(void)
 {
     // these declarations are equivalent

@@ -71,8 +71,8 @@
 - (void)test_btcreatewithvalues_CreatesTreeWithGivenValues
 {
     bt_free(tree);
-    const size_t count = 5;
-    int numbers[count] = { 1, 2, 3, 4, 5 };
+    int numbers[] = { 1, 2, 3, 4, 5 };
+    const size_t count = sizeof numbers / sizeof numbers[0];
     
     tree = bt_create_with_values(count, 1, 2, 3, 4, 5);
     

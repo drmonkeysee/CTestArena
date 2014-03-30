@@ -11,6 +11,7 @@
 		026AC6AD18864616007EB6F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 026AC6AB18864616007EB6F1 /* InfoPlist.strings */; };
 		026AC6C418864AEF007EB6F1 /* BinaryTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */; };
 		026AC6C518864C07007EB6F1 /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
+		0292802E18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0292802D18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib */; };
 		02C3A8511800C64A00E86DAF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A8501800C64A00E86DAF /* main.c */; };
 		02C3A8531800C64A00E86DAF /* CTestArena.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C3A8521800C64A00E86DAF /* CTestArena.1 */; };
 		02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
@@ -46,6 +47,7 @@
 		026AC6AC18864616007EB6F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		026AC6B018864616007EB6F1 /* CTestArenaTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTestArenaTests-Prefix.pch"; sourceTree = "<group>"; };
 		026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryTreeTests.m; sourceTree = "<group>"; };
+		0292802D18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcmocka.0.3.2.dylib; path = ../ExternalLibs/cmocka/libcmocka.0.3.2.dylib; sourceTree = "<group>"; };
 		02C3A84D1800C64A00E86DAF /* CTestArena */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CTestArena; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3A8501800C64A00E86DAF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		02C3A8521800C64A00E86DAF /* CTestArena.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CTestArena.1; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0292802E18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib in Frameworks */,
 				026AC6A718864616007EB6F1 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +78,7 @@
 		026AC6A518864616007EB6F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0292802D18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib */,
 				026AC6A618864616007EB6F1 /* XCTest.framework */,
 			);
 			name = Frameworks;
@@ -282,6 +286,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "CTestArenaTests/CTestArenaTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/brandonrstansbury/Documents/Dev/Xcode/Projects/CTestArena/ExternalLibs/cmocka,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
@@ -299,6 +307,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CTestArenaTests/CTestArenaTests-Prefix.pch";
 				INFOPLIST_FILE = "CTestArenaTests/CTestArenaTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/brandonrstansbury/Documents/Dev/Xcode/Projects/CTestArena/ExternalLibs/cmocka,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;

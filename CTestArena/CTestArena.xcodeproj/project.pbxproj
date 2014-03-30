@@ -12,6 +12,7 @@
 		026AC6C418864AEF007EB6F1 /* BinaryTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */; };
 		026AC6C518864C07007EB6F1 /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
 		0292802E18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0292802D18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib */; };
+		0292803018E7AE0E008F3B83 /* CMockaDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292802F18E7AE0E008F3B83 /* CMockaDriver.m */; };
 		02C3A8511800C64A00E86DAF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A8501800C64A00E86DAF /* main.c */; };
 		02C3A8531800C64A00E86DAF /* CTestArena.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C3A8521800C64A00E86DAF /* CTestArena.1 */; };
 		02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
@@ -48,6 +49,7 @@
 		026AC6B018864616007EB6F1 /* CTestArenaTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTestArenaTests-Prefix.pch"; sourceTree = "<group>"; };
 		026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryTreeTests.m; sourceTree = "<group>"; };
 		0292802D18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcmocka.0.3.2.dylib; path = ../ExternalLibs/cmocka/libcmocka.0.3.2.dylib; sourceTree = "<group>"; };
+		0292802F18E7AE0E008F3B83 /* CMockaDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMockaDriver.m; sourceTree = "<group>"; };
 		02C3A84D1800C64A00E86DAF /* CTestArena */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CTestArena; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3A8501800C64A00E86DAF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		02C3A8521800C64A00E86DAF /* CTestArena.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CTestArena.1; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				026AC6C018864AD2007EB6F1 /* Modules */,
+				0292802F18E7AE0E008F3B83 /* CMockaDriver.m */,
 				026AC6A918864616007EB6F1 /* Supporting Files */,
 			);
 			path = CTestArenaTests;
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				026AC6C518864C07007EB6F1 /* binary_tree.c in Sources */,
+				0292803018E7AE0E008F3B83 /* CMockaDriver.m in Sources */,
 				026AC6C418864AEF007EB6F1 /* BinaryTreeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

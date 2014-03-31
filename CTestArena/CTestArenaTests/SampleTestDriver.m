@@ -1,5 +1,5 @@
 //
-//  CMockaDriver.m
+//  SampleTestDriver.m
 //  CTestArena
 //
 //  Created by Brandon Stansbury on 3/29/14.
@@ -8,11 +8,11 @@
 
 int test_main(void);
 
-@interface CMockaDriver : XCTestCase
+@interface SampleTestDriver : XCTestCase
 
 @end
 
-@implementation CMockaDriver
+@implementation SampleTestDriver
 
 - (void)test_SampleTest_Suite
 {

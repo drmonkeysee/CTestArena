@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		026AC6A718864616007EB6F1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 026AC6A618864616007EB6F1 /* XCTest.framework */; };
 		026AC6AD18864616007EB6F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 026AC6AB18864616007EB6F1 /* InfoPlist.strings */; };
-		026AC6C418864AEF007EB6F1 /* BinaryTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */; };
+		026AC6C418864AEF007EB6F1 /* BinaryTreeTestDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 026AC6C318864AEF007EB6F1 /* BinaryTreeTestDriver.m */; };
 		026AC6C518864C07007EB6F1 /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
 		0292802E18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0292802D18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib */; };
 		0292803018E7AE0E008F3B83 /* CMockaDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292802F18E7AE0E008F3B83 /* CMockaDriver.m */; };
@@ -49,7 +49,7 @@
 		026AC6AA18864616007EB6F1 /* CTestArenaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CTestArenaTests-Info.plist"; sourceTree = "<group>"; };
 		026AC6AC18864616007EB6F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		026AC6B018864616007EB6F1 /* CTestArenaTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTestArenaTests-Prefix.pch"; sourceTree = "<group>"; };
-		026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryTreeTests.m; sourceTree = "<group>"; };
+		026AC6C318864AEF007EB6F1 /* BinaryTreeTestDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryTreeTestDriver.m; sourceTree = "<group>"; };
 		0292802D18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcmocka.0.3.2.dylib; path = ../ExternalLibs/cmocka/libcmocka.0.3.2.dylib; sourceTree = "<group>"; };
 		0292802F18E7AE0E008F3B83 /* CMockaDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMockaDriver.m; sourceTree = "<group>"; };
 		02985FF218E90EFA006999EA /* sample_tests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sample_tests.c; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 		026AC6C018864AD2007EB6F1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */,
 				02985FF518E910A6006999EA /* binary_tree_tests.c */,
+				026AC6C318864AEF007EB6F1 /* BinaryTreeTestDriver.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -247,7 +247,7 @@
 				026AC6C518864C07007EB6F1 /* binary_tree.c in Sources */,
 				0292803018E7AE0E008F3B83 /* CMockaDriver.m in Sources */,
 				02985FF618E910A6006999EA /* binary_tree_tests.c in Sources */,
-				026AC6C418864AEF007EB6F1 /* BinaryTreeTests.m in Sources */,
+				026AC6C418864AEF007EB6F1 /* BinaryTreeTestDriver.m in Sources */,
 				02985FF418E90F26006999EA /* sample_tests.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

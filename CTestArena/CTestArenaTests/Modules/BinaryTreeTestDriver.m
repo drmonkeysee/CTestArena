@@ -1,5 +1,5 @@
 //
-//  BinaryTreeTests.m
+//  BinaryTreeTestDriver.m
 //  CTestArena
 //
 //  Created by Brandon Stansbury on 1/14/14.
@@ -8,13 +8,13 @@
 
 #include "binary_tree.h"
 
-@interface BinaryTreeTests : XCTestCase
+@interface BinaryTreeTestDriver : XCTestCase
 {
     binary_tree tree;
 }
 @end
 
-@implementation BinaryTreeTests
+@implementation BinaryTreeTestDriver
 
 - (void)setUp
 {

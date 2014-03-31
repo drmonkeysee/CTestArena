@@ -16,7 +16,7 @@ int test_main(void);
 
 - (void)test_main
 {
-    XCTAssertEqual(0, test_main());
+    XCTAssertEqual(0, test_main(), @"sample test suite failed");
 }
 
 @end

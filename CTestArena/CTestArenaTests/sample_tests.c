@@ -6,19 +6,22 @@
 //  Copyright (c) 2014 Monkey Bits. All rights reserved.
 //
 
-#include <stdarg.h>
-#include <stddef.h>
-#include <setjmp.h>
-#include <cmocka/cmocka.h>
-
-static void null_test_success(void **state)
+static void example_pass(void **state)
 {
     assert_true(1);
 }
 
+static void example_fail(void **state)
+{
+    assert_true(0);
+}
+
 int test_main(void)
 {
-    const UnitTest tests[] = { unit_test(null_test_success) };
+    const UnitTest tests[] = {
+        unit_test(example_pass),
+        unit_test(example_fail)
+    };
     
     return run_tests(tests);
 }

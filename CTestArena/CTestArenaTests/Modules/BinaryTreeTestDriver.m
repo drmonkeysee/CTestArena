@@ -14,7 +14,7 @@ int binary_tree_tests_main(void);
 
 @implementation BinaryTreeTestDriver
 
-- (void)test_binarytree_Suite
+- (void)test_BinaryTree_Suite
 {
     XCTAssertEqual(0, binary_tree_tests_main());
 }

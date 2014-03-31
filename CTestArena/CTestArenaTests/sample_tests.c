@@ -16,7 +16,7 @@ static void example_fail(void **state)
     fail_msg("failure test");
 }
 
-int test_main(void)
+int sample_tests_main(void)
 {
     const UnitTest tests[] = {
         unit_test(example_pass),

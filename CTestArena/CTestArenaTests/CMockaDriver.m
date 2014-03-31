@@ -14,7 +14,7 @@ int test_main(void);
 
 @implementation CMockaDriver
 
-- (void)test_main
+- (void)test_SampleTest_Suite
 {
     XCTAssertEqual(0, test_main(), @"sample test suite failed");
 }

@@ -82,6 +82,7 @@ static void btcreatewithvalues_CreatesTreeWithGivenValues(void **state)
     for (size_t i = 0; i < count; ++i) {
         assert_true(bt_contains(tree, numbers[i]));
     }
+    *state = tree;
 }
 
 static void btcreatewithvalues_InsertsValuesInOrder(void **state)
@@ -91,6 +92,7 @@ static void btcreatewithvalues_InsertsValuesInOrder(void **state)
     binary_tree tree = bt_create_with_values(count, 1, 2, 3, 4, 5);
     
     assert_int_equal(count, bt_depth(tree));
+    *state = tree;
 }
 
 static void btcontains_ReturnsTrue_IfValuePresent(void **state)
@@ -154,6 +156,7 @@ static void btrebalance_RebalancesTree(void **state)
     bt_rebalance(&tree);
     
     assert_int_equal(4lu, bt_depth(tree));
+    *state = tree;
 }
 
 static void btrebalance_RebalancesEmptyTree(void **state)
@@ -184,14 +187,14 @@ int binary_tree_tests_main(void)
         unit_test_setup_teardown(btinsert_InsertsValueIntoTree, setup, teardown),
         unit_test_setup_teardown(btinsert_InsertsZeroIntoTree, setup, teardown),
         unit_test_setup_teardown(btinsert_InsertsMultipleValues, setup, teardown),
-        unit_test(btcreatewithvalues_CreatesTreeWithGivenValues),
-        unit_test(btcreatewithvalues_InsertsValuesInOrder),
+        unit_test_teardown(btcreatewithvalues_CreatesTreeWithGivenValues, teardown),
+        unit_test_teardown(btcreatewithvalues_InsertsValuesInOrder, teardown),
         unit_test_setup_teardown(btcontains_ReturnsTrue_IfValuePresent, setup, teardown),
         unit_test_setup_teardown(btcontains_ReturnsFalse_IfValueNotPresent, setup, teardown),
         unit_test_setup_teardown(btcontains_SupportsZero, setup, teardown),
         unit_test_setup_teardown(btcontains_ReturnsTrue_IfValuePresentAmongOtherValues, setup, teardown),
         unit_test_setup_teardown(btinsert_CreatesTreeStructure, setup, teardown),
-        unit_test(btrebalance_RebalancesTree),
+        unit_test_teardown(btrebalance_RebalancesTree, teardown),
         unit_test_setup_teardown(btrebalance_RebalancesEmptyTree, setup, teardown),
         unit_test_setup_teardown(btrebalance_RebalancesTreeWithOneElement, setup, teardown),
     };

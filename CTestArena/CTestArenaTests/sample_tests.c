@@ -13,7 +13,7 @@ static void example_pass(void **state)
 
 static void example_fail(void **state)
 {
-    assert_true(0);
+    fail_msg("failure test");
 }
 
 int test_main(void)

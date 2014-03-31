@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Monkey Bits. All rights reserved.
 //
 
-int test_main(void);
+int sample_tests_main(void);
 
 @interface SampleTestDriver : XCTestCase
 
@@ -16,7 +16,7 @@ int test_main(void);
 
 - (void)test_SampleTest_Suite
 {
-    XCTAssertEqual(0, test_main(), @"sample test suite failed");
+    XCTAssertEqual(0, sample_tests_main());
 }
 
 @end

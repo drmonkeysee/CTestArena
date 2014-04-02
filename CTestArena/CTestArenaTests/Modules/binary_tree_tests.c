@@ -99,6 +99,7 @@ static void btcontains_ReturnsTrue_IfValuePresent(void **state)
 {
     binary_tree tree = *state;
     int expected_value = 8;
+    
     bt_insert(&tree, expected_value);
     
     assert_true(bt_contains(tree, expected_value));
@@ -108,6 +109,7 @@ static void btcontains_ReturnsFalse_IfValueNotPresent(void **state)
 {
     binary_tree tree = *state;
     int expected_value = 8;
+    
     bt_insert(&tree, 10);
     
     assert_false(bt_contains(tree, expected_value));
@@ -117,6 +119,7 @@ static void btcontains_SupportsZero(void **state)
 {
     binary_tree tree = *state;
     int expected_value = 0;
+    
     bt_insert(&tree, expected_value);
     
     assert_true(bt_contains(tree, expected_value));
@@ -126,6 +129,7 @@ static void btcontains_ReturnsTrue_IfValuePresentAmongOtherValues(void **state)
 {
     binary_tree tree = *state;
     int expectedValue = 8;
+    
     bt_insert(&tree, 3);
     bt_insert(&tree, -4);
     bt_insert(&tree, expectedValue);
@@ -137,6 +141,7 @@ static void btcontains_ReturnsTrue_IfValuePresentAmongOtherValues(void **state)
 static void btinsert_CreatesTreeStructure(void **state)
 {
     binary_tree tree = *state;
+    
     bt_insert(&tree, 3);
     bt_insert(&tree, -4);
     bt_insert(&tree, 8);

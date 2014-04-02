@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		024B3C3D18EBB63400714B2E /* thing_factory.c in Sources */ = {isa = PBXBuildFile; fileRef = 024B3C3C18EBB63400714B2E /* thing_factory.c */; };
+		024B3C3F18EBB83400714B2E /* thing_display.c in Sources */ = {isa = PBXBuildFile; fileRef = 024B3C3E18EBB83400714B2E /* thing_display.c */; };
+		024B3C4218EBB8EA00714B2E /* thing_doer.c in Sources */ = {isa = PBXBuildFile; fileRef = 024B3C4118EBB8EA00714B2E /* thing_doer.c */; };
 		026AC6A718864616007EB6F1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 026AC6A618864616007EB6F1 /* XCTest.framework */; };
 		026AC6AD18864616007EB6F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 026AC6AB18864616007EB6F1 /* InfoPlist.strings */; };
 		026AC6C418864AEF007EB6F1 /* BinaryTreeTestDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 026AC6C318864AEF007EB6F1 /* BinaryTreeTestDriver.m */; };
@@ -44,6 +47,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		024B3C3918EBB53000714B2E /* thing_display.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thing_display.h; sourceTree = "<group>"; };
+		024B3C3B18EBB61400714B2E /* thing_factory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thing_factory.h; sourceTree = "<group>"; };
+		024B3C3C18EBB63400714B2E /* thing_factory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thing_factory.c; sourceTree = "<group>"; };
+		024B3C3E18EBB83400714B2E /* thing_display.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thing_display.c; sourceTree = "<group>"; };
+		024B3C4018EBB8D500714B2E /* thing_doer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thing_doer.h; sourceTree = "<group>"; };
+		024B3C4118EBB8EA00714B2E /* thing_doer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thing_doer.c; sourceTree = "<group>"; };
 		026AC6A418864616007EB6F1 /* CTestArenaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTestArenaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		026AC6A618864616007EB6F1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		026AC6AA18864616007EB6F1 /* CTestArenaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CTestArenaTests-Info.plist"; sourceTree = "<group>"; };
@@ -154,6 +163,12 @@
 			children = (
 				02C3A85B1800CA2800E86DAF /* binary_tree.h */,
 				02C3A85C1800CA3800E86DAF /* binary_tree.c */,
+				024B3C3918EBB53000714B2E /* thing_display.h */,
+				024B3C3E18EBB83400714B2E /* thing_display.c */,
+				024B3C3B18EBB61400714B2E /* thing_factory.h */,
+				024B3C3C18EBB63400714B2E /* thing_factory.c */,
+				024B3C4018EBB8D500714B2E /* thing_doer.h */,
+				024B3C4118EBB8EA00714B2E /* thing_doer.c */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -257,7 +272,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */,
+				024B3C3D18EBB63400714B2E /* thing_factory.c in Sources */,
 				02C3A8511800C64A00E86DAF /* main.c in Sources */,
+				024B3C4218EBB8EA00714B2E /* thing_doer.c in Sources */,
+				024B3C3F18EBB83400714B2E /* thing_display.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

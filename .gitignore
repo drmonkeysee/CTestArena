@@ -132,3 +132,9 @@ xcuserdata
 # Xcode 5 source control files
 #
 *.xccheckout
+
+####
+# Project specific excludes
+#
+ExternalLibs/**/*.dylib
+ExternalLibs/**/*.h

@@ -8,3 +8,8 @@
     #import <Cocoa/Cocoa.h>
     #import <XCTest/XCTest.h>
 #endif
+
+#include <stdarg.h>
+#include <stddef.h>
+#include <setjmp.h>
+#include <cmocka/cmocka.h>

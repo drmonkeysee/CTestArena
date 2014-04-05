@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		024B3C3D18EBB63400714B2E /* thing_factory.c in Sources */ = {isa = PBXBuildFile; fileRef = 024B3C3C18EBB63400714B2E /* thing_factory.c */; };
+		024B3C3F18EBB83400714B2E /* thing_display.c in Sources */ = {isa = PBXBuildFile; fileRef = 024B3C3E18EBB83400714B2E /* thing_display.c */; };
+		024B3C4218EBB8EA00714B2E /* thing_doer.c in Sources */ = {isa = PBXBuildFile; fileRef = 024B3C4118EBB8EA00714B2E /* thing_doer.c */; };
+		024B3C4418EBB99200714B2E /* thing_doer_tests.c in Sources */ = {isa = PBXBuildFile; fileRef = 024B3C4318EBB99200714B2E /* thing_doer_tests.c */; };
+		024B3C4618EBB9F000714B2E /* ThingDoerTestDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 024B3C4518EBB9F000714B2E /* ThingDoerTestDriver.m */; };
 		026AC6A718864616007EB6F1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 026AC6A618864616007EB6F1 /* XCTest.framework */; };
 		026AC6AD18864616007EB6F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 026AC6AB18864616007EB6F1 /* InfoPlist.strings */; };
-		026AC6C418864AEF007EB6F1 /* BinaryTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */; };
+		026AC6C418864AEF007EB6F1 /* BinaryTreeTestDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 026AC6C318864AEF007EB6F1 /* BinaryTreeTestDriver.m */; };
 		026AC6C518864C07007EB6F1 /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
+		0292802E18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0292802D18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib */; };
+		0292803018E7AE0E008F3B83 /* SampleTestDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292802F18E7AE0E008F3B83 /* SampleTestDriver.m */; };
+		02985FF418E90F26006999EA /* sample_tests.c in Sources */ = {isa = PBXBuildFile; fileRef = 02985FF218E90EFA006999EA /* sample_tests.c */; };
+		02985FF618E910A6006999EA /* binary_tree_tests.c in Sources */ = {isa = PBXBuildFile; fileRef = 02985FF518E910A6006999EA /* binary_tree_tests.c */; };
 		02C3A8511800C64A00E86DAF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A8501800C64A00E86DAF /* main.c */; };
 		02C3A8531800C64A00E86DAF /* CTestArena.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C3A8521800C64A00E86DAF /* CTestArena.1 */; };
 		02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
@@ -40,12 +49,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		024B3C3918EBB53000714B2E /* thing_display.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thing_display.h; sourceTree = "<group>"; };
+		024B3C3B18EBB61400714B2E /* thing_factory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thing_factory.h; sourceTree = "<group>"; };
+		024B3C3C18EBB63400714B2E /* thing_factory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thing_factory.c; sourceTree = "<group>"; };
+		024B3C3E18EBB83400714B2E /* thing_display.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thing_display.c; sourceTree = "<group>"; };
+		024B3C4018EBB8D500714B2E /* thing_doer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thing_doer.h; sourceTree = "<group>"; };
+		024B3C4118EBB8EA00714B2E /* thing_doer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thing_doer.c; sourceTree = "<group>"; };
+		024B3C4318EBB99200714B2E /* thing_doer_tests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thing_doer_tests.c; sourceTree = "<group>"; };
+		024B3C4518EBB9F000714B2E /* ThingDoerTestDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThingDoerTestDriver.m; sourceTree = "<group>"; };
 		026AC6A418864616007EB6F1 /* CTestArenaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTestArenaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		026AC6A618864616007EB6F1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		026AC6AA18864616007EB6F1 /* CTestArenaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CTestArenaTests-Info.plist"; sourceTree = "<group>"; };
 		026AC6AC18864616007EB6F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		026AC6B018864616007EB6F1 /* CTestArenaTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTestArenaTests-Prefix.pch"; sourceTree = "<group>"; };
-		026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryTreeTests.m; sourceTree = "<group>"; };
+		026AC6C318864AEF007EB6F1 /* BinaryTreeTestDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryTreeTestDriver.m; sourceTree = "<group>"; };
+		0292802D18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcmocka.0.3.2.dylib; path = ../ExternalLibs/cmocka/libcmocka.0.3.2.dylib; sourceTree = "<group>"; };
+		0292802F18E7AE0E008F3B83 /* SampleTestDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTestDriver.m; sourceTree = "<group>"; };
+		02985FF218E90EFA006999EA /* sample_tests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sample_tests.c; sourceTree = "<group>"; };
+		02985FF518E910A6006999EA /* binary_tree_tests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = binary_tree_tests.c; sourceTree = "<group>"; };
 		02C3A84D1800C64A00E86DAF /* CTestArena */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CTestArena; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3A8501800C64A00E86DAF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		02C3A8521800C64A00E86DAF /* CTestArena.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CTestArena.1; sourceTree = "<group>"; };
@@ -58,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0292802E18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib in Frameworks */,
 				026AC6A718864616007EB6F1 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +97,7 @@
 		026AC6A518864616007EB6F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0292802D18E7ADA7008F3B83 /* libcmocka.0.3.2.dylib */,
 				026AC6A618864616007EB6F1 /* XCTest.framework */,
 			);
 			name = Frameworks;
@@ -84,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				026AC6C018864AD2007EB6F1 /* Modules */,
+				02985FF218E90EFA006999EA /* sample_tests.c */,
+				0292802F18E7AE0E008F3B83 /* SampleTestDriver.m */,
 				026AC6A918864616007EB6F1 /* Supporting Files */,
 			);
 			path = CTestArenaTests;
@@ -102,7 +127,10 @@
 		026AC6C018864AD2007EB6F1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				026AC6C318864AEF007EB6F1 /* BinaryTreeTests.m */,
+				02985FF518E910A6006999EA /* binary_tree_tests.c */,
+				026AC6C318864AEF007EB6F1 /* BinaryTreeTestDriver.m */,
+				024B3C4318EBB99200714B2E /* thing_doer_tests.c */,
+				024B3C4518EBB9F000714B2E /* ThingDoerTestDriver.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -141,6 +169,12 @@
 			children = (
 				02C3A85B1800CA2800E86DAF /* binary_tree.h */,
 				02C3A85C1800CA3800E86DAF /* binary_tree.c */,
+				024B3C3918EBB53000714B2E /* thing_display.h */,
+				024B3C3E18EBB83400714B2E /* thing_display.c */,
+				024B3C3B18EBB61400714B2E /* thing_factory.h */,
+				024B3C3C18EBB63400714B2E /* thing_factory.c */,
+				024B3C4018EBB8D500714B2E /* thing_doer.h */,
+				024B3C4118EBB8EA00714B2E /* thing_doer.c */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -231,8 +265,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024B3C4418EBB99200714B2E /* thing_doer_tests.c in Sources */,
 				026AC6C518864C07007EB6F1 /* binary_tree.c in Sources */,
-				026AC6C418864AEF007EB6F1 /* BinaryTreeTests.m in Sources */,
+				0292803018E7AE0E008F3B83 /* SampleTestDriver.m in Sources */,
+				02985FF618E910A6006999EA /* binary_tree_tests.c in Sources */,
+				024B3C4618EBB9F000714B2E /* ThingDoerTestDriver.m in Sources */,
+				026AC6C418864AEF007EB6F1 /* BinaryTreeTestDriver.m in Sources */,
+				02985FF418E90F26006999EA /* sample_tests.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +280,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */,
+				024B3C3D18EBB63400714B2E /* thing_factory.c in Sources */,
 				02C3A8511800C64A00E86DAF /* main.c in Sources */,
+				024B3C4218EBB8EA00714B2E /* thing_doer.c in Sources */,
+				024B3C3F18EBB83400714B2E /* thing_display.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +323,16 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/../ExternalLibs/cmocka",
+				);
 				INFOPLIST_FILE = "CTestArenaTests/CTestArenaTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../ExternalLibs/cmocka",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
@@ -298,7 +349,16 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CTestArenaTests/CTestArenaTests-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/../ExternalLibs/cmocka",
+				);
 				INFOPLIST_FILE = "CTestArenaTests/CTestArenaTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../ExternalLibs/cmocka",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
@@ -308,9 +368,6 @@
 		02C3A8541800C64A00E86DAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -321,7 +378,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -345,9 +402,6 @@
 		02C3A8551800C64A00E86DAF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -360,7 +414,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -376,8 +430,6 @@
 		02C3A8571800C64A00E86DAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				GCC_C_LANGUAGE_STANDARD = c99;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -385,8 +437,6 @@
 		02C3A8581800C64A00E86DAF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				GCC_C_LANGUAGE_STANDARD = c99;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

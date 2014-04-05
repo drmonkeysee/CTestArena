@@ -72,6 +72,7 @@
 		02C3A8521800C64A00E86DAF /* CTestArena.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CTestArena.1; sourceTree = "<group>"; };
 		02C3A85B1800CA2800E86DAF /* binary_tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = binary_tree.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		02C3A85C1800CA3800E86DAF /* binary_tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; lineEnding = 0; path = binary_tree.c; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		02CB9D4718F0C818000AF557 /* ciny.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ciny.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +110,7 @@
 				026AC6C018864AD2007EB6F1 /* Modules */,
 				02985FF218E90EFA006999EA /* sample_tests.c */,
 				0292802F18E7AE0E008F3B83 /* SampleTestDriver.m */,
+				02CB9D4718F0C818000AF557 /* ciny.h */,
 				026AC6A918864616007EB6F1 /* Supporting Files */,
 			);
 			path = CTestArenaTests;

@@ -185,6 +185,14 @@ static void btrebalance_RebalancesTreeWithOneElement(void **state)
 
 int binary_tree_tests_main(void)
 {
+    // ct_create_fixture and ct_create_suite?
+    // ct_fixture_setup(f_ptr)
+    // ct_setup(function_ptr)
+    // ct_test_suite(f_ptr, f_ptr, f_ptr, f_ptr)
+    // ct_teardown(function_ptr)
+    // ct_fixture_teardown(f_ptr)
+    // ct_run_suite(name:, array_of_f_ptr) use function name if no suite name defined?
+    
     const UnitTest tests[] = {
         unit_test_setup_teardown(btcreate_CreatesEmptyTree, setup, teardown),
         unit_test_setup_teardown(btsize_ReturnsZero_IfEmptyTree, setup, teardown),

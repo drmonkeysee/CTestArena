@@ -82,7 +82,7 @@ static void btcreatewithvalues_CreatesTreeWithGivenValues(void **state)
     for (size_t i = 0; i < count; ++i) {
         assert_true(bt_contains(tree, numbers[i]));
     }
-    *state = tree;
+    free(tree);
 }
 
 static void btcreatewithvalues_InsertsValuesInOrder(void **state)
@@ -92,7 +92,7 @@ static void btcreatewithvalues_InsertsValuesInOrder(void **state)
     binary_tree tree = bt_create_with_values(count, 1, 2, 3, 4, 5);
     
     assert_int_equal(count, bt_depth(tree));
-    *state = tree;
+    free(tree);
 }
 
 static void btcontains_ReturnsTrue_IfValuePresent(void **state)
@@ -161,7 +161,7 @@ static void btrebalance_RebalancesTree(void **state)
     bt_rebalance(&tree);
     
     assert_int_equal(4lu, bt_depth(tree));
-    *state = tree;
+    free(tree);
 }
 
 static void btrebalance_RebalancesEmptyTree(void **state)

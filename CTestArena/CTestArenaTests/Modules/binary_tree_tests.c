@@ -192,6 +192,10 @@ int binary_tree_tests_main(void)
     // ct_teardown(function_ptr)
     // ct_fixture_teardown(f_ptr)
     // ct_run_suite(name:, array_of_f_ptr) use function name if no suite name defined?
+    // ct_make_suite(setup, array_of_f_ptr, teardown)
+    // ct_make_fixture(setup, suite, teardown)
+    // ct_run_suite(suite)
+    // ct_run_fixture(fixture)
     
     const UnitTest tests[] = {
         unit_test_setup_teardown(btcreate_CreatesEmptyTree, setup, teardown),

@@ -137,4 +137,5 @@ xcuserdata
 # Project specific excludes
 #
 ExternalLibs/**/*.dylib
+ExternalLibs/**/*.a
 ExternalLibs/**/*.h

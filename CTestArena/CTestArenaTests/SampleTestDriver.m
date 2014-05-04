@@ -19,4 +19,16 @@ int sample_tests_main(void);
     XCTAssertEqual(0, sample_tests_main());
 }
 
+- (void)test_FailEquality
+{
+    XCTAssertEqual(0, 1);
+    XCTAssertEqual(2, 3, @"Lookout!");
+}
+
+- (void)test_Fail
+{
+    XCTFail(@"oh NO");
+    XCTFail();
+}
+
 @end

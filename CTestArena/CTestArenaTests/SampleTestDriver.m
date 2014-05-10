@@ -23,6 +23,9 @@ int sample_tests_main(void);
 {
     XCTAssertEqual(0, 1);
     XCTAssertEqual(2, 3, @"Lookout!");
+    NSNumber *blarg = @45;
+    XCTAssertNil(blarg, @"Oh no not nil");
+    XCTAssertFalse(blarg, @"oh no not false");
 }
 
 - (void)test_Fail

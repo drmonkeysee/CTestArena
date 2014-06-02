@@ -176,6 +176,52 @@ void const_typedefs(void)
     printf("Blah is now %d\n", v_blah.value);
 }
 
+#define pick_thing(v) _Generic(v, int: "foobar", const int: "blarg", volatile int: "bort", _Atomic int: "food", const volatile int: "spim", const _Atomic int: "boo", volatile _Atomic int: "mood", const volatile _Atomic int: "doom")
+void generic_variants(void)
+{
+    int b = 5;
+    const char *s = pick_thing(b);
+    
+    const int c = 10;
+    const char *s2 = pick_thing(c);
+    
+    volatile int d = 10;
+    const char *s3 = pick_thing(d);
+    
+    _Atomic int e = 10;
+    const char *s4 = pick_thing(e);
+    
+    volatile const int f = 10;
+    const char *s5 = pick_thing(f);
+    
+    const volatile int g = 10;
+    const char *s6 = pick_thing(g);
+    
+    const _Atomic int h = 10;
+    const char *s7 = pick_thing(h);
+    
+    volatile _Atomic int i = 10;
+    const char *s8 = pick_thing(i);
+    
+    const volatile _Atomic int j = 10;
+    const char *s9 = pick_thing(j);
+    
+    extern int k;
+    const char *s10 = pick_thing(k);
+    
+    register int l = 10;
+    const char *s11 = pick_thing(l);
+    
+    static int m = 10;
+    const char *s12 = pick_thing(m);
+    
+    _Alignas(long) int n = 10;
+    const char *s13 = pick_thing(n);
+    
+    auto int o = 10;
+    const char *s14 = pick_thing(o);
+}
+
 int main(int argc, const char *argv[])
 {
     binarytrees();

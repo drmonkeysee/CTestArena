@@ -176,6 +176,13 @@ void const_typedefs(void)
     printf("Blah is now %d\n", v_blah.value);
 }
 
+#define func(f) _Generic(f, int (*)(char): "blah")
+
+int boot(char c)
+{
+    return 10;
+}
+
 _Thread_local int p;
 
 #define pick_thing(v) _Generic(v, int: "foobar", const int: "blarg", volatile int: "bort", _Atomic int: "food", const volatile int: "spim", const _Atomic int: "boo", volatile _Atomic int: "mood", const volatile _Atomic int: "doom")
@@ -226,6 +233,9 @@ void generic_variants(void)
     
     p = 10;
     const char *s15 = pick_thing(p);
+    
+    const char *s16 = func(&boot);
+    const char *s17 = func(&const_typedefs);
 }
 
 int main(int argc, const char *argv[])

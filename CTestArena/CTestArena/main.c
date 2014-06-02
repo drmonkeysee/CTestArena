@@ -208,6 +208,7 @@ void generic_variants(void)
     const volatile _Atomic int j = 10;
     const char *s9 = pick_thing(j);
     
+    
     extern int k;
     const char *s10 = pick_thing(k);
     

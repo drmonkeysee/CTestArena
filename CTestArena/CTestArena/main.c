@@ -235,7 +235,66 @@ void generic_variants(void)
     const char *s15 = pick_thing(p);
     
     const char *s16 = func(&boot);
-    const char *s17 = func(&const_typedefs);
+//    const char *s17 = func(&const_typedefs);
+}
+
+static const char * const pstr = "barfoo";
+static const char astr[] = "barfoo";
+
+void string_memory(void)
+{
+    printf("--string memory--\n");
+    printf("string literal is at %p\n", "barfoo");
+    printf("string ptr is at %p\n", pstr);
+    printf("string array is at %p\n", astr);
+}
+
+void regular_array(int foo[], int n)
+{
+    printf("%s has array value %p\n", __func__, foo);
+}
+
+void vlc_array(int n, int foo[n])
+{
+    printf("%s has array value %p\n", __func__, foo);
+}
+
+void static_array(int foo[static 10])
+{
+    printf("%s has array value %p\n", __func__, foo);
+}
+
+void vlcstatic_array(int n, int foo[static n])
+{
+    printf("%s has array value %p\n", __func__, foo);
+}
+
+void array_params(void)
+{
+    printf("--array params--\n");
+    
+    int foo[5];
+    regular_array(foo, 5);
+    vlc_array(5, foo);
+    static_array(foo);
+    vlcstatic_array(5, foo);
+    
+    int bar[10];
+    regular_array(bar, 10);
+    vlc_array(2, bar);
+    static_array(bar);
+    vlcstatic_array(5, bar);
+    
+    regular_array(NULL, 0);
+    vlc_array(0, NULL);
+    static_array(NULL);
+    vlcstatic_array(0, NULL);
+    
+    int baz[20];
+    regular_array(baz, 20);
+    vlc_array(20, baz);
+    static_array(baz);
+    vlcstatic_array(20, baz);
 }
 
 int main(int argc, const char *argv[])
@@ -245,6 +304,8 @@ int main(int argc, const char *argv[])
     reassign_struct_member();
     modify_pointer_arg();
     const_typedefs();
+    string_memory();
+    array_params();
     
     return EXIT_SUCCESS;
 }

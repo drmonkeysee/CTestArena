@@ -252,21 +252,25 @@ void string_memory(void)
 void regular_array(int foo[], int n)
 {
     printf("%s has array value %p\n", __func__, foo);
+    printf("%s has array size %zu\n", __func__, sizeof foo);
 }
 
 void vlc_array(int n, int foo[n])
 {
     printf("%s has array value %p\n", __func__, foo);
+    printf("%s has array size %zu\n", __func__, sizeof foo);
 }
 
 void static_array(int foo[static 10])
 {
     printf("%s has array value %p\n", __func__, foo);
+    printf("%s has array size %zu\n", __func__, sizeof foo);
 }
 
 void vlcstatic_array(int n, int foo[static n])
 {
     printf("%s has array value %p\n", __func__, foo);
+    printf("%s has array size %zu\n", __func__, sizeof foo);
 }
 
 void array_params(void)

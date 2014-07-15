@@ -273,6 +273,12 @@ void vlcstatic_array(int n, int foo[static n])
     printf("%s has array size %zu\n", __func__, sizeof foo);
 }
 
+void const_array(const int foo[const])
+{
+    foo[1] = 5;
+    foo = (int []){ 1, 2, 4 };
+}
+
 void array_params(void)
 {
     printf("--array params--\n");

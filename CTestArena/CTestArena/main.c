@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "binary_tree.h"
+#include "aliasing.h"
 
 void binarytrees(void)
 {
@@ -267,7 +268,7 @@ void static_array(int foo[static 10])
     printf("%s has array size %zu\n", __func__, sizeof foo);
 }
 
-void vlcstatic_array(int n, int foo[static n])
+void vlcstatic_array(int n, int foo[static])
 {
     printf("%s has array value %p\n", __func__, foo);
     printf("%s has array size %zu\n", __func__, sizeof foo);
@@ -275,8 +276,17 @@ void vlcstatic_array(int n, int foo[static n])
 
 void const_array(const int foo[const])
 {
-    foo[1] = 5;
-    foo = (int []){ 1, 2, 4 };
+    //foo[1] = 5;
+    //foo = (int []){ 1, 2, 4 };
+}
+
+int *make_array(size_t size)
+{
+    int *foo = malloc(sizeof(int) * size);
+    for (size_t i = 0; i < size; ++i) {
+        foo[i] = (int)i;
+    }
+    return foo;
 }
 
 void array_params(void)
@@ -305,6 +315,26 @@ void array_params(void)
     vlc_array(20, baz);
     static_array(baz);
     vlcstatic_array(20, baz);
+    
+    int *pfoo = make_array(10);
+    regular_array(pfoo, 10);
+    vlc_array(10, pfoo);
+    static_array(pfoo);
+    vlcstatic_array(10, pfoo);
+    free(pfoo);
+}
+
+void aliasing(void)
+{
+    const size_t size = 5;
+    int a[] = { 0, 0, 0, 0, 0 };
+    int *ap = a;
+    int b[] = { 1, 2, 3, 4, 5 };
+    int *bp = b;
+    int c[] = { 2, 4, 6, 8, 10 };
+    int *cp = c;
+    
+    one_write(ap, bp, cp, size);
 }
 
 int main(int argc, const char *argv[])
@@ -316,6 +346,7 @@ int main(int argc, const char *argv[])
     const_typedefs();
     string_memory();
     array_params();
+    aliasing();
     
     return EXIT_SUCCESS;
 }

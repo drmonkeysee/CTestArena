@@ -20,6 +20,7 @@
 		0292803018E7AE0E008F3B83 /* SampleTestDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292802F18E7AE0E008F3B83 /* SampleTestDriver.m */; };
 		02985FF418E90F26006999EA /* sample_tests.c in Sources */ = {isa = PBXBuildFile; fileRef = 02985FF218E90EFA006999EA /* sample_tests.c */; };
 		02985FF618E910A6006999EA /* binary_tree_tests.c in Sources */ = {isa = PBXBuildFile; fileRef = 02985FF518E910A6006999EA /* binary_tree_tests.c */; };
+		02BDFE6819B6831D00577027 /* aliasing.c in Sources */ = {isa = PBXBuildFile; fileRef = 02BDFE6719B6831D00577027 /* aliasing.c */; };
 		02C3A8511800C64A00E86DAF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A8501800C64A00E86DAF /* main.c */; };
 		02C3A8531800C64A00E86DAF /* CTestArena.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C3A8521800C64A00E86DAF /* CTestArena.1 */; };
 		02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
@@ -67,6 +68,8 @@
 		0292802F18E7AE0E008F3B83 /* SampleTestDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTestDriver.m; sourceTree = "<group>"; };
 		02985FF218E90EFA006999EA /* sample_tests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sample_tests.c; sourceTree = "<group>"; };
 		02985FF518E910A6006999EA /* binary_tree_tests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = binary_tree_tests.c; sourceTree = "<group>"; };
+		02BDFE6719B6831D00577027 /* aliasing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aliasing.c; sourceTree = "<group>"; };
+		02BDFE6919B6837C00577027 /* aliasing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aliasing.h; sourceTree = "<group>"; };
 		02C3A84D1800C64A00E86DAF /* CTestArena */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CTestArena; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3A8501800C64A00E86DAF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		02C3A8521800C64A00E86DAF /* CTestArena.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CTestArena.1; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				02C3A8591800CA0D00E86DAF /* Modules */,
 				02C3A8501800C64A00E86DAF /* main.c */,
 				02C3A8521800C64A00E86DAF /* CTestArena.1 */,
+				02BDFE6919B6837C00577027 /* aliasing.h */,
+				02BDFE6719B6831D00577027 /* aliasing.c */,
 			);
 			path = CTestArena;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				02C3A8511800C64A00E86DAF /* main.c in Sources */,
 				024B3C4218EBB8EA00714B2E /* thing_doer.c in Sources */,
 				024B3C3F18EBB83400714B2E /* thing_display.c in Sources */,
+				02BDFE6819B6831D00577027 /* aliasing.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

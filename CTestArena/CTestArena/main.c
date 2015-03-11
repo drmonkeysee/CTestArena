@@ -337,8 +337,37 @@ void aliasing(void)
     one_write(ap, bp, cp, size);
 }
 
+typedef int butts;
+struct foo { int x; };
+struct bar { int y; };
+union { int meter; } m;
+union { int foot; } f;
+
+void dobutts(union { int meter; } m)
+{
+    printf("%d", m.meter);
+}
+
+int gint(int v)
+{
+    printf("int is %d", v);
+    return 10;
+}
+
+double gouble(double d)
+{
+    printf("double is %f", d);
+    return 5.5;
+}
+
+#define do_thing(v) _Generic(v, int: gint, double: gouble)(v)
+
 int main(int argc, const char *argv[])
 {
+    double foo = do_thing(4.3);
+    int b = do_thing(8);
+    union { int meter; } m = { 5 };
+    //dobutts(m);
     binarytrees();
     compare_sizeof();
     reassign_struct_member();

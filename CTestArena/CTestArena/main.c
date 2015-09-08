@@ -350,23 +350,45 @@ void dobutts(union { int meter; } m)
 
 int gint(int v)
 {
-    printf("int is %d", v);
+    printf("int is %d\n", v);
     return 10;
 }
 
-double gouble(double d)
+double gouble(double d, const char *foo)
 {
-    printf("double is %f", d);
+    printf("double is %f with label %s\n", d, foo);
     return 5.5;
 }
 
-#define do_thing(v) _Generic(v, int: gint, double: gouble)(v)
+int dnothing(void)
+{
+    printf("nothing\n");
+    return 10;
+}
+
+#define do_thing(v) _Generic(v, int: gint(v), double: gouble(v, "foo"), default: printf("default\n"))
+
+#define another_thing(v) _Generic(v, int: gint(v), default: dnothing())
 
 int main(int argc, const char *argv[])
 {
+    another_thing(5);
+    another_thing("foo");
+    
     double foo = do_thing(4.3);
     int b = do_thing(8);
+    _Atomic int c = 9;
+    do_thing(c);
+    const int d = 10;
+    do_thing(d);
+    volatile int e = 12;
+    do_thing(e);
     union { int meter; } m = { 5 };
+    
+    int nums[2] = { 1, 3 };
+    struct foo srf = { 2 };
+    enum { E_A, E_B, E_C } en = E_B;
+    
     //dobutts(m);
     binarytrees();
     compare_sizeof();

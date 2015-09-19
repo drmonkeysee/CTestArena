@@ -3,7 +3,7 @@
 //  CTestArena
 //
 //  Created by Brandon Stansbury on 4/1/14.
-//  Copyright (c) 2014 Monkey Bits. All rights reserved.
+//  Copyright (c) 2014 Brandon Stansbury. All rights reserved.
 //
 
 #include "thing_factory.h"

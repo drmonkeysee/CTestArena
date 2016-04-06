@@ -14,3 +14,9 @@ void one_write(int * restrict a, const int * restrict b, const int * restrict c,
         a[i] = b[i] + c[i];
     }
 }
+
+void single_update(int * restrict a, int * restrict b, int * restrict val)
+{
+    *a += *val;
+    *b += *val;
+}

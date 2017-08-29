@@ -370,6 +370,16 @@ int dnothing(void)
 
 #define another_thing(v) _Generic(v, int: gint(v), default: dnothing())
 
+void weird_fünc(void)
+{
+    printf("called %s\n", __func__);
+}
+
+void 🐴_func(void)
+{
+    printf("called %s\n", __func__);
+}
+
 int main(int argc, const char *argv[])
 {
     another_thing(5);
@@ -398,6 +408,9 @@ int main(int argc, const char *argv[])
     string_memory();
     array_params();
     aliasing();
+    
+    weird_fünc();
+    🐴_func();
     
     return EXIT_SUCCESS;
 }

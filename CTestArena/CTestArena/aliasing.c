@@ -11,8 +11,7 @@
 #define RESTRICT_KW restrict
 
 struct ints {
-    int v;
-    int *p;
+    int v, *p;
 };
 
 struct pair {

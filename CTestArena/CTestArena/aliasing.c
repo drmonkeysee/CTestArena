@@ -38,6 +38,19 @@ struct pair with_ints_val(struct ints c, int * RESTRICT_KW i)
     return (struct pair){*v_ref, *p_ref};
 }
 
+// this works identically to with_ints
+// vp can alias either c->v or c->p
+struct pair with_voids(struct ints * RESTRICT_KW c, void * RESTRICT_KW vp)
+{
+    int *v_ref = &c->v;
+    int *p_ref = c->p;
+    int *i = vp;
+    *v_ref = 5;
+    *p_ref = 7;
+    *i = 11;
+    return (struct pair){*v_ref, *p_ref};
+}
+
 void one_write(int * RESTRICT_KW a, const int * RESTRICT_KW b, const int * RESTRICT_KW c, size_t n)
 {
     for (size_t i = 0; i < n; ++i) {

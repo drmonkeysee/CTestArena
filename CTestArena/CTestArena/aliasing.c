@@ -10,6 +10,35 @@
 
 #define RESTRICT_KW restrict
 
+struct ints {
+    int v;
+    int *p;
+};
+
+struct pair {
+    int a, b;
+};
+
+struct pair with_ints(struct ints * RESTRICT_KW c, int * RESTRICT_KW i)
+{
+    int *v_ref = &c->v; // restrict c forbids aliasing c->v with i
+    int *p_ref = c->p;  // restrict i forbids aliasing with c->p
+    *v_ref = 5;
+    *p_ref = 7;
+    *i = 11;
+    return (struct pair){*v_ref, *p_ref};
+}
+
+struct pair with_ints_val(struct ints c, int * RESTRICT_KW i)
+{
+    int *v_ref = &c.v;  // c.v is by-value in scope so no possible aliasing
+    int *p_ref = c.p;   // restrict i optimizes aliasing with c.p
+    *v_ref = 5;
+    *p_ref = 7;
+    *i = 11;
+    return (struct pair){*v_ref, *p_ref};
+}
+
 void one_write(int * RESTRICT_KW a, const int * RESTRICT_KW b, const int * RESTRICT_KW c, size_t n)
 {
     for (size_t i = 0; i < n; ++i) {

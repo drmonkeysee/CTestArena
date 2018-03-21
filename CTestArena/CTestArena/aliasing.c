@@ -86,3 +86,11 @@ void char_aliasing(int * RESTRICT_KW a, int * RESTRICT_KW b, char * RESTRICT_KW 
     *a += *val;
     *b += *val;
 }
+
+struct pair multiple_types(int *ip, double *dp, char * RESTRICT_KW cp)
+{
+    *ip = 5;
+    *dp = 1.2;
+    *cp = 3;
+    return (struct pair){ *ip, *dp };
+}

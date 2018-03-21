@@ -51,6 +51,43 @@ struct pair with_voids(struct ints * RESTRICT_KW c, void * RESTRICT_KW vp)
     return (struct pair){*v_ref, *p_ref};
 }
 
+struct pair with_str_array(struct ints * RESTRICT_KW c, char *strings[])
+{
+    int *v_ref = &c->v;
+    int *p_ref = c->p;
+    char *ch = strings[0];
+    *v_ref = 5;
+    *p_ref = 7;
+    *ch = 11;
+    return (struct pair){*v_ref, *p_ref};
+}
+
+struct one {
+    int a;
+};
+
+struct two {
+    int a;
+};
+
+enum mine {
+    MINE_FOO
+};
+
+struct pair two_structs(struct one *o, struct two *t)
+{
+    o->a = 1;
+    t->a = 3;
+    return (struct pair){ o->a, t-> a};
+}
+
+struct pair struct_enum(struct one * restrict o, enum mine * restrict e)
+{
+    o->a = 1;
+    *e = 3;
+    return (struct pair){ o->a, *e};
+}
+
 void one_write(int * RESTRICT_KW a, const int * RESTRICT_KW b, const int * RESTRICT_KW c, size_t n)
 {
     for (size_t i = 0; i < n; ++i) {

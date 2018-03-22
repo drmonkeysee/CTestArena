@@ -9,6 +9,6 @@
 #ifndef CTestArena_aliasing_h
 #define CTestArena_aliasing_h
 
-void one_write(int *a, const int *b, const int *c, size_t n);
+int use_int(int i);
 
 #endif

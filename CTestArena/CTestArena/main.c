@@ -8,58 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "binary_tree.h"
 #include "aliasing.h"
-
-void binarytrees(void)
-{
-    printf("-- binarytrees --\n");
-    
-    printf("Empty tree:\n");
-    binary_tree empty_tree = bt_create();
-    bt_print(empty_tree);
-    printf("Empty tree size: %lu\n", bt_size(empty_tree));
-    printf("Empty tree depth: %lu\n", bt_depth(empty_tree));
-    printf("Empty tree contains 3?: %s\n", bt_contains(empty_tree, 3) ? "Yes" : "No");
-    bt_free(empty_tree);
-    
-    printf("New tree:\n");
-    binary_tree my_tree = bt_create_with_values(9, 8, 5, 10, 3, 4, 12, 9, 15, 2);
-    bt_print(my_tree);
-    printf("Tree size: %lu\n", bt_size(my_tree));
-    printf("Tree depth: %lu\n", bt_depth(my_tree));
-    printf("Tree contains 12?: %s\n", bt_contains(my_tree, 12) ? "Yes" : "No");
-    printf("Insert 11:\n");
-    bt_insert(&my_tree, 11);
-    bt_print(my_tree);
-    printf("Insert existing value (10):\n");
-    bt_insert(&my_tree, 10);
-    bt_print(my_tree);
-    printf("Remove leaf node (4):\n");
-    bt_remove(&my_tree, 4);
-    bt_print(my_tree);
-    printf("Remove node with two children (10):\n");
-    bt_remove(&my_tree, 10);
-    bt_print(my_tree);
-    printf("Remove node with left child (3):\n");
-    bt_remove(&my_tree, 3);
-    bt_print(my_tree);
-    printf("Remove node with right child (12):\n");
-    bt_remove(&my_tree, 12);
-    bt_print(my_tree);
-    printf("Final tree size: %lu\n", bt_size(my_tree));
-    printf("Final tree depth: %lu\n", bt_depth(my_tree));
-    printf("Final tree contains 12?: %s\n", bt_contains(my_tree, 12) ? "Yes" : "No");
-    bt_free(my_tree);
-    
-    binary_tree wack_tree = bt_create_with_values(12, 1, 2, 3, 6, 5, 4, 10, 11, 12, 13, 14, 15);
-    printf("This tree is wack:\n");
-    bt_print(wack_tree);
-    bt_rebalance(&wack_tree);
-    printf("The wack tree has been rebalanced:\n");
-    bt_print(wack_tree);
-    bt_free(wack_tree);
-}
 
 void compare_sizeof(void)
 {
@@ -324,19 +273,6 @@ void array_params(void)
     free(pfoo);
 }
 
-void aliasing(void)
-{
-    const size_t size = 5;
-    int a[] = { 0, 0, 0, 0, 0 };
-    int *ap = a;
-    int b[] = { 1, 2, 3, 4, 5 };
-    int *bp = b;
-    int c[] = { 2, 4, 6, 8, 10 };
-    int *cp = c;
-    
-    one_write(ap, bp, cp, size);
-}
-
 typedef int butts;
 struct foo { int x; };
 struct bar { int y; };
@@ -400,14 +336,14 @@ int main(int argc, const char *argv[])
     enum { E_A, E_B, E_C } en = E_B;
     
     //dobutts(m);
-    binarytrees();
     compare_sizeof();
     reassign_struct_member();
     modify_pointer_arg();
     const_typedefs();
     string_memory();
     array_params();
-    aliasing();
+    
+    use_int(5);
     
     weird_fünc();
     🐴_func();

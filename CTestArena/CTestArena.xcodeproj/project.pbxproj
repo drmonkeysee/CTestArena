@@ -11,11 +11,9 @@
 		024B3C3F18EBB83400714B2E /* thing_display.c in Sources */ = {isa = PBXBuildFile; fileRef = 024B3C3E18EBB83400714B2E /* thing_display.c */; };
 		024B3C4218EBB8EA00714B2E /* thing_doer.c in Sources */ = {isa = PBXBuildFile; fileRef = 024B3C4118EBB8EA00714B2E /* thing_doer.c */; };
 		026AC6AD18864616007EB6F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 026AC6AB18864616007EB6F1 /* InfoPlist.strings */; };
-		026AC6C518864C07007EB6F1 /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
 		02BDFE6819B6831D00577027 /* aliasing.c in Sources */ = {isa = PBXBuildFile; fileRef = 02BDFE6719B6831D00577027 /* aliasing.c */; };
-		02C3A8511800C64A00E86DAF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A8501800C64A00E86DAF /* main.c */; };
 		02C3A8531800C64A00E86DAF /* CTestArena.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C3A8521800C64A00E86DAF /* CTestArena.1 */; };
-		02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A85C1800CA3800E86DAF /* binary_tree.c */; };
+		C87A737720635B500099D1E4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A8501800C64A00E86DAF /* main.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +55,6 @@
 		02C3A84D1800C64A00E86DAF /* CTestArena */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CTestArena; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3A8501800C64A00E86DAF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		02C3A8521800C64A00E86DAF /* CTestArena.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CTestArena.1; sourceTree = "<group>"; };
-		02C3A85B1800CA2800E86DAF /* binary_tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = binary_tree.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		02C3A85C1800CA3800E86DAF /* binary_tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; lineEnding = 0; path = binary_tree.c; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +142,6 @@
 		02C3A8591800CA0D00E86DAF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				02C3A85B1800CA2800E86DAF /* binary_tree.h */,
-				02C3A85C1800CA3800E86DAF /* binary_tree.c */,
 				024B3C3918EBB53000714B2E /* thing_display.h */,
 				024B3C3E18EBB83400714B2E /* thing_display.c */,
 				024B3C3B18EBB61400714B2E /* thing_factory.h */,
@@ -244,7 +238,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				026AC6C518864C07007EB6F1 /* binary_tree.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,9 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02C3A85D1800CA3800E86DAF /* binary_tree.c in Sources */,
 				024B3C3D18EBB63400714B2E /* thing_factory.c in Sources */,
-				02C3A8511800C64A00E86DAF /* main.c in Sources */,
+				C87A737720635B500099D1E4 /* main.c in Sources */,
 				024B3C4218EBB8EA00714B2E /* thing_doer.c in Sources */,
 				024B3C3F18EBB83400714B2E /* thing_display.c in Sources */,
 				02BDFE6819B6831D00577027 /* aliasing.c in Sources */,
@@ -381,9 +373,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
 			};
 			name = Debug;
 		};
@@ -421,8 +417,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = macosx;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
 			};
 			name = Release;
 		};

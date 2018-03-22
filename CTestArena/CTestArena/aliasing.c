@@ -17,6 +17,7 @@ struct pair {
     int a, b;
 };
 
+// i aliases with c->v and c->p
 struct pair with_ints(struct ints * restrict c, int * restrict i)
 {
     int *v_ref = &c->v; // restrict c forbids aliasing c->v with i
@@ -27,6 +28,7 @@ struct pair with_ints(struct ints * restrict c, int * restrict i)
     return (struct pair){*v_ref, *p_ref};
 }
 
+// i aliases with c->p
 struct pair with_ints_val(struct ints c, int * restrict i)
 {
     int *v_ref = &c.v;  // c.v is by-value in scope so no possible aliasing
@@ -50,6 +52,7 @@ struct pair with_voids(struct ints * restrict c, void * restrict vp)
     return (struct pair){*v_ref, *p_ref};
 }
 
+// any of the chars alias with c
 struct pair with_str_array(struct ints * restrict c, char *strings[])
 {
     int *v_ref = &c->v;
@@ -127,6 +130,14 @@ int mixedenums(short *a, enum mine *e)
 {
     *a = 2;
     *e = 5;
+    return *a;
+}
+
+// these do not
+int mixedfsizes(double *a, long double *b)
+{
+    *a = 2.0;
+    *b = 1.2;
     return *a;
 }
 

@@ -109,6 +109,14 @@ int mixedints(int *a, unsigned int *b)
     return *a;
 }
 
+// these alias
+int mixed_explicit_ints(signed int *a, unsigned int *b)
+{
+    *a = 2;
+    *b = 5;
+    return *a;
+}
+
 // these do not
 int mixedsizes(int *a, long *b)
 {
@@ -160,8 +168,8 @@ int const_restrict(const int *a, const int *b)
 // crossing a translation unit boundary causes reloads if not restrict
 int const_restrict_ext_call(const int * restrict a, const int * restrict b)
 {
-    int r1 = use_int(*a);
-    int r2 = use_int(*b);
+    int r1 = *a;
+    int r2 = *b;
     printf("%d:%d", 1, 2);
     return r1 + r2 + *a + *b;
 }

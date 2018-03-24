@@ -155,6 +155,39 @@ int use_int(int i)
     return a;
 }
 
+// restrict ip has an effect but restrict *ipp does not
+// regardless of order of stores and loads between *ipp and ip
+int pointer_and_pointer_to_pointer(int **ipp, int *ip)
+{
+    int *p = *ipp;
+    *p = 5;
+    *ip = 10;
+    return **ipp;
+}
+
+// restrict has no effect anywhere here including:
+// pointer to pointer args, pointer args, and pointer locals
+int pointers_to_pointers(int **ipp, int **ipp2)
+{
+    int *p = *ipp;
+    int *p2 = *ipp2;
+    *p = 5;
+    *p2 = 10;
+    return **ipp;
+}
+
+// restrict has no effect on *numbers, probably for same reason
+// it had no effect on *ipp above
+int pointer_array(int *numbers[], size_t n)
+{
+    if (n < 2) return 0;
+    
+    int *first = numbers[0];
+    *first = 10;
+    *(numbers[1]) = 5;
+    return *first;
+}
+
 // restrict has no effect here
 // no writes, no need for reloads
 int const_restrict(const int *a, const int *b)

@@ -72,8 +72,16 @@ struct two {
     int a;
 };
 
+struct three {
+    char a;
+};
+
+struct four {
+    float a;
+};
+
 enum mine {
-    MINE_FOO
+    MINE_FOO = 65000
 };
 
 // these do not alias
@@ -85,11 +93,25 @@ struct pair two_structs(struct one *o, struct two *t)
 }
 
 // these alias at o->a
-struct pair struct_enum(struct one * restrict o, enum mine * restrict e)
+struct pair struct_enum(struct one *o, enum mine *e)
 {
     o->a = 1;
     *e = 3;
     return (struct pair){ o->a, *e};
+}
+
+struct pair char_struct_enum(struct three *t, enum mine *e)
+{
+    t->a = 'a';
+    *e = 3;
+    return (struct pair){ t->a, *e};
+}
+
+struct pair float_struct_enum(struct four * restrict f, enum mine * restrict e)
+{
+    f->a = 1.2;
+    *e = 3;
+    return (struct pair){ f->a, *e};
 }
 
 // char aliases
@@ -137,6 +159,14 @@ int mixednums(int *a, double *b)
 int mixedenums(short *a, enum mine *e)
 {
     *a = 2;
+    *e = 5;
+    return *a;
+}
+
+// enums seem to alias with everything
+int floatenums(float *a, enum mine *e)
+{
+    *a = 2.0;
     *e = 5;
     return *a;
 }

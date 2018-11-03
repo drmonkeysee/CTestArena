@@ -37,12 +37,12 @@ void reassign_struct_member(void)
         int value;
         struct node *child;
     };
-    struct node a_child = { .value = 9 };
-    struct node parent = { .value = 5, .child = &a_child };
+    struct node a_child = {.value = 9};
+    struct node parent = {.value = 5, .child = &a_child};
     printf("Parent: %d --> %d\n", parent.value, parent.child->value);
     
     struct node **parent_child = &parent.child;
-    struct node another_child = { .value = 40 };
+    struct node another_child = {.value = 40};
     *parent_child = &another_child;
     printf("Parent after child reassignment: %d --> %d\n", parent.value, parent.child->value);
     
@@ -114,7 +114,7 @@ void const_typedefs(void)
 //    binary_tree const tc_tree = bt_create();
 //    ct_tree = bt_create();
 //    tc_tree = bt_create();
-    Blah v_blah = { 12 };
+    Blah v_blah = {12};
     const Blah *c_blah = &v_blah;
 //    c_blah->value = 40; can't do this
     c_blah = NULL;
@@ -226,7 +226,7 @@ void vlcstatic_array(int n, int foo[static n])
 void const_array(const int foo[const])
 {
     //foo[1] = 5;
-    //foo = (int []){ 1, 2, 4 };
+    //foo = (int []){1, 2, 4};
 }
 
 int *make_array(size_t size)
@@ -329,10 +329,10 @@ int main(int argc, const char *argv[])
     do_thing(d);
     volatile int e = 12;
     do_thing(e);
-    union { int meter; } m = { 5 };
+    union { int meter; } m = {5};
     
-    int nums[2] = { 1, 3 };
-    struct foo srf = { 2 };
+    int nums[2] = {1, 3};
+    struct foo srf = {2};
     enum { E_A, E_B, E_C } en = E_B;
     
     //dobutts(m);

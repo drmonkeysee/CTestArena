@@ -89,7 +89,7 @@ struct pair two_structs(struct one *o, struct two *t)
 {
     o->a = 1;
     t->a = 3;
-    return (struct pair){ o->a, t-> a};
+    return (struct pair){o->a, t-> a};
 }
 
 // these alias at o->a
@@ -97,21 +97,21 @@ struct pair struct_enum(struct one *o, enum mine *e)
 {
     o->a = 1;
     *e = 3;
-    return (struct pair){ o->a, *e};
+    return (struct pair){o->a, *e};
 }
 
 struct pair char_struct_enum(struct three *t, enum mine *e)
 {
     t->a = 'a';
     *e = 3;
-    return (struct pair){ t->a, *e};
+    return (struct pair){t->a, *e};
 }
 
 struct pair float_struct_enum(struct four * restrict f, enum mine * restrict e)
 {
     f->a = 1.2;
     *e = 3;
-    return (struct pair){ f->a, *e};
+    return (struct pair){f->a, *e};
 }
 
 // char aliases
@@ -120,7 +120,7 @@ struct pair multiple_types(int *ip, double *dp, char * restrict cp)
     *ip = 5;
     *dp = 1.2;
     *cp = 3;
-    return (struct pair){ *ip, *dp };
+    return (struct pair){*ip, *dp};
 }
 
 // these alias

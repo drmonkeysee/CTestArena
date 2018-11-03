@@ -10,5 +10,5 @@
 
 struct thing create_thing(void)
 {
-    return (struct thing){ "real thing", 84 };
+    return (struct thing){"real thing", 84};
 }

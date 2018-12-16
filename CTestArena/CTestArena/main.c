@@ -316,8 +316,31 @@ void 🐴_func(void)
     printf("called %s\n", __func__);
 }
 
+#define to_widest(x) \
+_Generic(0ll+x+0ll, \
+    long long: "long long", \
+    unsigned long long: "ulong long", \
+    long double: "long double", \
+    long double _Complex: "long complex", \
+    default: "unknown widest" \
+)
+
+#define lstr_lit(v) ("" v)
+#define rstr_lit(v) (v "")
+#define str_lit(v) ("" v "")
+
+typedef int myfunc(int);
+
+myfunc a_func;
+
 int main(int argc, const char *argv[])
 {
+    printf("strlit: %s\n", str_lit("foobar"));
+    
+    printf("widest: %s\n", to_widest(1.0));
+    
+    a_func(10);
+    
     another_thing(5);
     another_thing("foo");
     

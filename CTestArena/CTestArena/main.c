@@ -336,10 +336,11 @@ myfunc a_func;
 int main(int argc, const char *argv[])
 {
     printf("strlit: %s\n", str_lit("foobar"));
+    printf("strlit: %s\n", str_lit());
     
     printf("widest: %s\n", to_widest(1.0));
     
-    a_func(10);
+    //a_func(10);
     
     another_thing(5);
     another_thing("foo");

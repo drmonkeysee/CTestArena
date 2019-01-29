@@ -248,6 +248,9 @@ void array_params(void)
     static_array(foo);
     vlcstatic_array(5, foo);
     
+    int *beef = NULL;
+    static_array(beef);
+    
     int bar[10];
     regular_array(bar, 10);
     vlc_array(2, bar);
@@ -333,8 +336,20 @@ typedef int myfunc(int);
 
 myfunc a_func;
 
+#define with_msg(...) with_message("" car(__VA_ARGS__) "%.d", cdr(__VA_ARGS__))
+#define car(...) car_impl(__VA_ARGS__, 0)
+#define car_impl(head, ...) head
+#define cdr(...) cdr_impl(__VA_ARGS__, 0)
+#define cdr_impl(head, ...) __VA_ARGS__
+void with_message(const char *, ...);
+
 int main(int argc, const char *argv[])
 {
+    with_msg("food", 10);
+    with_msg("bugs");
+    //with_msg(10, 20);
+    with_msg();
+    
     printf("strlit: %s\n", str_lit("foobar"));
     printf("strlit: %s\n", str_lit());
     

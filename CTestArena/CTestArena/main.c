@@ -337,18 +337,24 @@ typedef int myfunc(int);
 myfunc a_func;
 
 #define with_msg(...) with_message("" car(__VA_ARGS__) "%.d", cdr(__VA_ARGS__))
-#define car(...) car_impl(__VA_ARGS__, 0)
+#define car(...) car_impl(__VA_ARGS__)
 #define car_impl(head, ...) head
 #define cdr(...) cdr_impl(__VA_ARGS__, 0)
 #define cdr_impl(head, ...) __VA_ARGS__
 void with_message(const char *, ...);
 
+#define stringify(e) #e
+#define macro_value(n) #n " " stringify(n)
+
 int main(int argc, const char *argv[])
 {
-    with_msg("food", 10);
-    with_msg("bugs");
+    printf("constants:\n\t" macro_value(__STDC__) "\n\t" macro_value(__STDC_VERSION__) "\n\t" macro_value(__STDC_LIB_EXT1__) "\n");
+    //with_msg("food", 10);
+    //with_msg("bugs");
     //with_msg(10, 20);
-    with_msg();
+    //with_msg();
+    
+    const char *s = "" car();
     
     printf("strlit: %s\n", str_lit("foobar"));
     printf("strlit: %s\n", str_lit());
@@ -358,7 +364,7 @@ int main(int argc, const char *argv[])
     //a_func(10);
     
     another_thing(5);
-    another_thing("foo");
+    //another_thing("foo");
     
     double foo = do_thing(4.3);
     int b = do_thing(8);

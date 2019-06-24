@@ -211,7 +211,7 @@ int pointers_to_pointers(int **ipp, int **ipp2)
 int pointer_array(int *numbers[], size_t n)
 {
     if (n < 2) return 0;
-    
+
     int *first = numbers[0];
     *first = 10;
     *(numbers[1]) = 5;
@@ -236,4 +236,3 @@ int const_restrict_ext_call(const int * restrict a, const int * restrict b)
     printf("%d:%d", 1, 2);
     return r1 + r2 + *a + *b;
 }
-

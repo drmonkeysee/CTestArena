@@ -22,7 +22,7 @@ void compare_sizeof(void)
     typedef struct foo *foo_ref;
     struct foo myfoo;
     foo_ref myref;
-    
+
     printf("Size of struct foo: %lu\n", sizeof(struct foo));
     printf("Size of foo_ref: %lu\n", sizeof(foo_ref));
     printf("Size of myfoo: %lu\n", sizeof myfoo);
@@ -40,12 +40,12 @@ void reassign_struct_member(void)
     struct node a_child = {.value = 9};
     struct node parent = {.value = 5, .child = &a_child};
     printf("Parent: %d --> %d\n", parent.value, parent.child->value);
-    
+
     struct node **parent_child = &parent.child;
     struct node another_child = {.value = 40};
     *parent_child = &another_child;
     printf("Parent after child reassignment: %d --> %d\n", parent.value, parent.child->value);
-    
+
     int *parent_value = &parent.value;
     *parent_value = 12;
     printf("Parent after value reassignment: %d --> %d\n", parent.value, parent.child->value);
@@ -140,50 +140,50 @@ void generic_variants(void)
 {
     int b = 5;
     const char *s = pick_thing(b);
-    
+
     const int c = 10;
     const char *s2 = pick_thing(c);
-    
+
     volatile int d = 10;
     const char *s3 = pick_thing(d);
-    
+
     _Atomic int e = 10;
     const char *s4 = pick_thing(e);
-    
+
     volatile const int f = 10;
     const char *s5 = pick_thing(f);
-    
+
     const volatile int g = 10;
     const char *s6 = pick_thing(g);
-    
+
     const _Atomic int h = 10;
     const char *s7 = pick_thing(h);
-    
+
     volatile _Atomic int i = 10;
     const char *s8 = pick_thing(i);
-    
+
     const volatile _Atomic int j = 10;
     const char *s9 = pick_thing(j);
-    
-    
+
+
     extern int k;
     const char *s10 = pick_thing(k);
-    
+
     register int l = 10;
     const char *s11 = pick_thing(l);
-    
+
     static int m = 10;
     const char *s12 = pick_thing(m);
-    
+
     _Alignas(long) int n = 10;
     const char *s13 = pick_thing(n);
-    
+
     auto int o = 10;
     const char *s14 = pick_thing(o);
-    
+
     p = 10;
     const char *s15 = pick_thing(p);
-    
+
     const char *s16 = func(&boot);
 //    const char *s17 = func(&const_typedefs);
 }
@@ -241,33 +241,33 @@ int *make_array(size_t size)
 void array_params(void)
 {
     printf("--array params--\n");
-    
+
     int foo[5];
     regular_array(foo, 5);
     vlc_array(5, foo);
     static_array(foo);
     vlcstatic_array(5, foo);
-    
+
     int *beef = NULL;
     static_array(beef);
-    
+
     int bar[10];
     regular_array(bar, 10);
     vlc_array(2, bar);
     static_array(bar);
     vlcstatic_array(5, bar);
-    
+
     regular_array(NULL, 0);
     vlc_array(0, NULL);
     static_array(NULL);
     vlcstatic_array(0, NULL);
-    
+
     int baz[20];
     regular_array(baz, 20);
     vlc_array(20, baz);
     static_array(baz);
     vlcstatic_array(20, baz);
-    
+
     int *pfoo = make_array(10);
     regular_array(pfoo, 10);
     vlc_array(10, pfoo);
@@ -353,19 +353,19 @@ int main(int argc, const char *argv[])
     //with_msg("bugs");
     //with_msg(10, 20);
     //with_msg();
-    
+
     const char *s = "" car();
-    
+
     printf("strlit: %s\n", str_lit("foobar"));
     printf("strlit: %s\n", str_lit());
-    
+
     printf("widest: %s\n", to_widest(1.0));
-    
+
     //a_func(10);
-    
+
     another_thing(5);
     //another_thing("foo");
-    
+
     double foo = do_thing(4.3);
     int b = do_thing(8);
     _Atomic int c = 9;
@@ -375,11 +375,11 @@ int main(int argc, const char *argv[])
     volatile int e = 12;
     do_thing(e);
     union { int meter; } m = {5};
-    
+
     int nums[2] = {1, 3};
     struct foo srf = {2};
     enum { E_A, E_B, E_C } en = E_B;
-    
+
     //dobutts(m);
     compare_sizeof();
     reassign_struct_member();
@@ -387,12 +387,11 @@ int main(int argc, const char *argv[])
     const_typedefs();
     string_memory();
     array_params();
-    
+
     use_int(5);
-    
+
     weird_fünc();
     🐴_func();
-    
+
     return EXIT_SUCCESS;
 }
-

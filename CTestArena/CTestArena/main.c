@@ -349,10 +349,10 @@ void with_message(const char *, ...);
 int main(int argc, const char *argv[])
 {
     printf("constants:\n\t" macro_value(__STDC__) "\n\t" macro_value(__STDC_VERSION__) "\n\t" macro_value(__STDC_LIB_EXT1__) "\n");
-    //with_msg("food", 10);
-    //with_msg("bugs");
+    with_msg("food", 10);
+    with_msg("bugs");
     //with_msg(10, 20);
-    //with_msg();
+    with_msg();
 
     const char *s = "" car();
 

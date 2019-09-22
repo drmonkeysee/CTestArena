@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "aliasing.h"
 
 void compare_sizeof(void)
@@ -305,6 +306,14 @@ int dnothing(void)
     return 10;
 }
 
+void lenvssize(void)
+{
+    const char * const str = "\u2026";
+    const size_t len = strlen(str);
+    const size_t size = sizeof str;
+    const size_t literal_size = sizeof "\u2026";
+}
+
 #define do_thing(v) _Generic(v, int: gint(v), double: gouble(v, "foo"), default: printf("default\n"))
 
 #define another_thing(v) _Generic(v, int: gint(v), default: dnothing())
@@ -349,10 +358,10 @@ void with_message(const char *, ...);
 int main(int argc, const char *argv[])
 {
     printf("constants:\n\t" macro_value(__STDC__) "\n\t" macro_value(__STDC_VERSION__) "\n\t" macro_value(__STDC_LIB_EXT1__) "\n");
-    with_msg("food", 10);
-    with_msg("bugs");
+    //with_msg("food", 10);
+    //with_msg("bugs");
     //with_msg(10, 20);
-    with_msg();
+    //with_msg();
 
     const char *s = "" car();
 
@@ -392,6 +401,8 @@ int main(int argc, const char *argv[])
 
     weird_fünc();
     🐴_func();
+
+    lenvssize();
 
     return EXIT_SUCCESS;
 }

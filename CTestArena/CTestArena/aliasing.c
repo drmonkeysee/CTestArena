@@ -18,7 +18,7 @@ struct pair {
 };
 
 // i aliases with c->v and c->p
-struct pair with_ints(struct ints * restrict c, int * restrict i)
+struct pair with_ints(struct ints *restrict c, int *restrict i)
 {
     int *v_ref = &c->v; // restrict c forbids aliasing c->v with i
     int *p_ref = c->p;  // restrict i forbids aliasing with c->p
@@ -235,4 +235,22 @@ int const_restrict_ext_call(const int * restrict a, const int * restrict b)
     int r2 = *b;
     printf("%d:%d", 1, 2);
     return r1 + r2 + *a + *b;
+}
+
+struct pointer_one {
+    int *a;
+};
+
+struct pointer_two {
+    int *a;
+};
+
+// restrict has no effect here (nor in the struct definitions)
+// looks like it reloads one->a from memory either way
+// it's probably a bit like int** and int** case
+int struct_p_members(struct pointer_one *one, struct pointer_two *two)
+{
+    *(one->a) = 5;
+    *(two->a) = 10;
+    return *(one->a);
 }

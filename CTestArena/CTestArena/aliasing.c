@@ -13,6 +13,14 @@ struct ints {
     int v, *p;
 };
 
+struct alt_ints {
+    int v, *p;
+};
+
+struct doubles {
+    double v, *p;
+};
+
 struct pair {
     int a, b;
 };
@@ -84,6 +92,91 @@ enum mine {
     MINE_FOO = 65000
 };
 
+//
+// cases verified through godbolt
+//
+
+// char aliases (even when const!) but a and d don't alias with each other
+struct pair multiple_types(int * a, double * d, const char *restrict s)
+{
+    int c = *s;
+    *d = c + 1.2;
+    *a = 3;
+    return (struct pair){*a, *s};
+}
+
+// restrict on *a doesn't do anything but restrict on b does work
+struct pair double_pointers(int **a, int *restrict b)
+{
+    int c = *b;
+    **a = c + 10;
+    return (struct pair){**a, *b};
+}
+
+// enum e acts like char * here, it aliases with a and d
+struct pair scalars_and_enums(int * a, double * d, enum mine *restrict e)
+{
+    int c = *e;
+    *a = 10;
+    *d = c + 1.5;
+    return (struct pair){*a, *e};
+}
+
+// s aliases with p but nothing within p
+struct pair struct_and_char(struct pair *p, const char *restrict s)
+{
+    int c = *s;
+    p->a = 10;
+    p->b = c + 3;
+    // doing this shuffles the instructions a bit but is otherwise the same
+    // *p = (struct pair){10, c + 3};
+    return (struct pair){p->a, *s};
+}
+
+// i and b->p both alias and retrict on only one param isn't sufficient for full optimization
+// (NOTE: in this case i is an int * but a char * would also alias)
+// (NOTE: more distressingly, if i were double * then restrict on b still has an effect, though not on i)
+// (is restrict optimization treating structs as opaque objects for the purposes of aliasing?)
+struct pair struct_and_pointer(struct ints *restrict b, int *restrict i)
+{
+    int c = *i;
+    b->v = 10;
+    *b->p = c + 3;
+    return (struct pair){b->v, *i};
+}
+
+// b->n and f->n alias each other!
+struct pair struct_pointer_fields(struct ints *restrict b, struct alt_ints *restrict f)
+{
+    int c = *f->p;
+    b->v = 10;
+    *b->p = c + 3;
+    return (struct pair){b->v, *f->p};
+}
+
+// b->n and bv.n alias each other! (NOTE: b->v does not alias with anything)
+struct pair same_struct_fields(struct ints *restrict b, struct ints bv)
+{
+    int c = *bv.p;
+    b->v = 10;
+    *b->p = c + 3;
+    return (struct pair){b->v, *bv.p};
+}
+
+// restrict on b has an effect here!
+// is restrict on ANY write-through of a struct field potentially useful?
+struct pair struct_diff_fields(struct ints *restrict b, struct doubles *f)
+{
+    double c = *f->p;
+    b->v = 10;
+    *b->p = c + 3;
+    return (struct pair){b->v, *f->p};
+}
+
+//
+// additional cases
+//
+
 // these do not alias
 struct pair two_structs(struct one *o, struct two *t)
 {
@@ -112,15 +205,6 @@ struct pair float_struct_enum(struct four * restrict f, enum mine * restrict e)
     f->a = 1.2;
     *e = 3;
     return (struct pair){f->a, *e};
-}
-
-// char aliases
-struct pair multiple_types(int *ip, double *dp, char * restrict cp)
-{
-    *ip = 5;
-    *dp = 1.2;
-    *cp = 3;
-    return (struct pair){*ip, *dp};
 }
 
 // these alias

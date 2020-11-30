@@ -25,69 +25,6 @@ struct pair {
     int a, b;
 };
 
-// i aliases with c->v and c->p
-struct pair with_ints(struct ints *restrict c, int *restrict i)
-{
-    int *v_ref = &c->v; // restrict c forbids aliasing c->v with i
-    int *p_ref = c->p;  // restrict i forbids aliasing with c->p
-    *v_ref = 5;
-    *p_ref = 7;
-    *i = 11;
-    return (struct pair){*v_ref, *p_ref};
-}
-
-// i aliases with c->p
-struct pair with_ints_val(struct ints c, int * restrict i)
-{
-    int *v_ref = &c.v;  // c.v is by-value in scope so no possible aliasing
-    int *p_ref = c.p;   // restrict i optimizes aliasing with c.p
-    *v_ref = 5;
-    *p_ref = 7;
-    *i = 11;
-    return (struct pair){*v_ref, *p_ref};
-}
-
-// this works identically to with_ints
-// vp can alias either c->v or c->p
-struct pair with_voids(struct ints * restrict c, void * restrict vp)
-{
-    int *v_ref = &c->v;
-    int *p_ref = c->p;
-    int *i = vp;
-    *v_ref = 5;
-    *p_ref = 7;
-    *i = 11;
-    return (struct pair){*v_ref, *p_ref};
-}
-
-// any of the chars alias with c
-struct pair with_str_array(struct ints * restrict c, char *strings[])
-{
-    int *v_ref = &c->v;
-    int *p_ref = c->p;
-    char *ch = strings[0];
-    *v_ref = 5;
-    *p_ref = 7;
-    *ch = 11;
-    return (struct pair){*v_ref, *p_ref};
-}
-
-struct one {
-    int a;
-};
-
-struct two {
-    int a;
-};
-
-struct three {
-    char a;
-};
-
-struct four {
-    float a;
-};
-
 enum mine {
     MINE_FOO = 65000
 };
@@ -154,14 +91,22 @@ struct pair struct_and_pointer(struct ints *restrict b, int *restrict i)
 // {int v; double *p} will *NOT* alias itself but {int v; char *p} will
 struct pair struct_itself(struct ints *restrict b)
 {
-    int c = *b->p;
-    b->v = 10;
-    *b->p = c + 3;
+    int c = b->v;
+    *b->p = c + 10;
     return (struct pair){b->v, *b->p};
 }
 
-// b->n and f->n alias each other!
-struct pair struct_pointer_fields(struct ints *restrict b, struct alt_ints *restrict f)
+// this generates identical code to struct_itself
+// NOTE: int *restrict *p and int **restrict p have no effect
+struct pair unrolled_struct(int *restrict v, int **p)
+{
+    int c = *v;
+    **p = c + 10;
+    return (struct pair){*v, **p};
+}
+
+// b and f have no aliasing here BUT b->v and *b->p are aliasing
+struct pair struct_pointer_fields(struct ints *restrict b, struct alt_ints *f)
 {
     int c = *f->p;
     b->v = 10;
@@ -169,7 +114,15 @@ struct pair struct_pointer_fields(struct ints *restrict b, struct alt_ints *rest
     return (struct pair){b->v, *f->p};
 }
 
-// b->n and bv.n alias each other! (NOTE: b->v does not alias with anything)
+// here b->v and *f->p are aliasing
+struct pair cross_struct_aliasing(struct ints *restrict b, struct alt_ints *f)
+{
+    int c = *f->p;
+    b->v = c + 10;
+    return (struct pair){b->v, *f->p};
+}
+
+// b and bv have no aliasing here BUT b->v and *b->p are aliasing
 struct pair same_struct_fields(struct ints *restrict b, struct ints bv)
 {
     int c = *bv.p;
@@ -178,8 +131,7 @@ struct pair same_struct_fields(struct ints *restrict b, struct ints bv)
     return (struct pair){b->v, *bv.p};
 }
 
-// restrict on b has an effect here!
-// is restrict on ANY write-through of a struct field potentially useful?
+// b and f have no aliasing here BUT b->v and *b->p are aliasing
 struct pair struct_diff_fields(struct ints *restrict b, struct doubles *f)
 {
     double c = *f->p;
@@ -188,9 +140,73 @@ struct pair struct_diff_fields(struct ints *restrict b, struct doubles *f)
     return (struct pair){b->v, *f->p};
 }
 
+
 //
 // additional cases
 //
+
+// i aliases with c->v and c->p
+struct pair with_ints(struct ints *restrict c, int *restrict i)
+{
+    int *v_ref = &c->v; // restrict c forbids aliasing c->v with i
+    int *p_ref = c->p;  // restrict i forbids aliasing with c->p
+    *v_ref = 5;
+    *p_ref = 7;
+    *i = 11;
+    return (struct pair){*v_ref, *p_ref};
+}
+
+// i aliases with c->p
+struct pair with_ints_val(struct ints c, int * restrict i)
+{
+    int *v_ref = &c.v;  // c.v is by-value in scope so no possible aliasing
+    int *p_ref = c.p;   // restrict i optimizes aliasing with c.p
+    *v_ref = 5;
+    *p_ref = 7;
+    *i = 11;
+    return (struct pair){*v_ref, *p_ref};
+}
+
+// this works identically to with_ints
+// vp can alias either c->v or c->p
+struct pair with_voids(struct ints * restrict c, void * restrict vp)
+{
+    int *v_ref = &c->v;
+    int *p_ref = c->p;
+    int *i = vp;
+    *v_ref = 5;
+    *p_ref = 7;
+    *i = 11;
+    return (struct pair){*v_ref, *p_ref};
+}
+
+// any of the chars alias with c
+struct pair with_str_array(struct ints * restrict c, char *strings[])
+{
+    int *v_ref = &c->v;
+    int *p_ref = c->p;
+    char *ch = strings[0];
+    *v_ref = 5;
+    *p_ref = 7;
+    *ch = 11;
+    return (struct pair){*v_ref, *p_ref};
+}
+
+struct one {
+    int a;
+};
+
+struct two {
+    int a;
+};
+
+struct three {
+    char a;
+};
+
+struct four {
+    float a;
+};
 
 // these do not alias
 struct pair two_structs(struct one *o, struct two *t)

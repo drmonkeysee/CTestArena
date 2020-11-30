@@ -137,12 +137,27 @@ struct pair struct_and_char(struct pair *p, const char *restrict s)
 // (NOTE: in this case i is an int * but a char * would also alias)
 // (NOTE: more distressingly, if i were double * then restrict on b still has an effect, though not on i)
 // (is restrict optimization treating structs as opaque objects for the purposes of aliasing?)
+// NOTE: ANSWER BELOW
 struct pair struct_and_pointer(struct ints *restrict b, int *restrict i)
 {
     int c = *i;
     b->v = 10;
     *b->p = c + 3;
     return (struct pair){b->v, *i};
+}
+
+// *b->p is aliasing with b->v (!)
+// see parameters as (int *b_v, int **b_p) and *b_p is aliasing with b_v
+// struct ints *restrict b is *like* (int *restrict b_v, int **restrict b_p)
+// where first restrict is actually preventing aliasing
+// redefining struct ints to {int v, *restrict p} does not help
+// {int v; double *p} will *NOT* alias itself but {int v; char *p} will
+struct pair struct_itself(struct ints *restrict b)
+{
+    int c = *b->p;
+    b->v = 10;
+    *b->p = c + 3;
+    return (struct pair){b->v, *b->p};
 }
 
 // b->n and f->n alias each other!

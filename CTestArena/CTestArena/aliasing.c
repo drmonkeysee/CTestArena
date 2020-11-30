@@ -140,6 +140,14 @@ struct pair struct_diff_fields(struct ints *restrict b, struct doubles *f)
     return (struct pair){b->v, *f->p};
 }
 
+// in this case adding restrict *ADDS* an additional mov instruction
+char strings_and_buffers(const char *restrict s, char **b)
+{
+    printf("foo: %c", *s);
+    (*b)[0] = 'a';
+    return *s;
+}
+
 
 //
 // additional cases

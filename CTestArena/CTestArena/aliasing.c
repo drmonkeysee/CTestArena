@@ -148,6 +148,50 @@ char strings_and_buffers(const char *restrict s, char **b)
     return *s;
 }
 
+struct vector {
+    size_t s;
+    short a[];
+};
+
+// restrict has HUGE effect here, restrict can turn this loop into a memcpy
+// restrict on either v or b has the same effect
+// if vector is redefined to use short *a then restrict b has same memcpy effect
+// but restrict on v has NO effect (because as-if short **restrict v_a which does not address aliasing)
+void struct_array_and_pointer(struct vector *v, size_t n, short b[restrict n])
+{
+    for (size_t i = 0; i < n; ++i) {
+        b[i] = v->a[i];
+    }
+}
+
+struct array_list {
+    size_t s;
+    short a[];
+};
+
+// restrict has huge effect here for same reason
+// there are effectively two short * parameters
+// again replacing a[] with a * restrict has no optimization effect
+// short **restrict v_a, short **restrict l_a doesn't help with optimizing
+// reads/writes through **v_a and **l_a
+// changing array_list to have an int[] or double[] member removes restrict
+// optimization opportunities but not due to aliasing analysis, it's because
+// you can't memcpy from a short buffer to an int or double buffer (exactly because they *don't* alias)
+void struct_array_members(struct vector *restrict v, struct array_list *restrict l)
+{
+    for (size_t i = 0; i < l->s; ++i) {
+        l->a[i] = v->a[i];
+    }
+}
+
+// restrict has an effect here because v->s aliases l->s (e.g. size_t *v_s, size_t *l_s)
+// since there is a write followed by a read, restrict presents optimization opportunities
+size_t struct_scalar_members(struct vector * v, struct array_list *restrict l)
+{
+    l->s = v->s;
+    return v->s;
+}
+
 
 //
 // additional cases

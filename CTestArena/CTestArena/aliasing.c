@@ -157,6 +157,7 @@ struct vector {
 // restrict on either v or b has the same effect
 // if vector is redefined to use short *a then restrict b has same memcpy effect
 // but restrict on v has NO effect (because as-if short **restrict v_a which does not address aliasing)
+// changing a[] to *restrict a has no effect
 void struct_array_and_pointer(struct vector *v, size_t n, short b[restrict n])
 {
     for (size_t i = 0; i < n; ++i) {
@@ -190,6 +191,42 @@ size_t struct_scalar_members(struct vector * v, struct array_list *restrict l)
 {
     l->s = v->s;
     return v->s;
+}
+
+struct {
+    int *ip;
+} GlobalInt;
+
+// restrict on parameter has an effect but restrict on GlobalInt.ip does not
+// seems like it should? maybe compilers just don't consider it
+int global_with_pointer(int *restrict c)
+{
+    int n = *GlobalInt.ip;
+    *c += n;
+    return *GlobalInt.ip;
+}
+
+
+const char *const GlobalStr = "Foobar";
+
+// restrict has no effect here, looks like compiler inlines the char literal
+// from the string data rather than using the pointer variable at all
+char global_string(char * c)
+{
+    int n = *GlobalStr;
+    *c += n;
+    return *GlobalStr;
+}
+
+int *restrict AInt;
+int *restrict BInt;
+
+// all of these restricts have an effect depending on the order things are done in
+int global_ints(int *restrict c)
+{
+    // *BInt += *AInt;
+    *c += *AInt;
+    return *AInt;
 }
 
 

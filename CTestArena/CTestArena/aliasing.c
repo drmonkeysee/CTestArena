@@ -9,18 +9,6 @@
 #include <stddef.h>
 #include <stdio.h>
 
-struct ints {
-    int v, *p;
-};
-
-struct alt_ints {
-    int v, *p;
-};
-
-struct doubles {
-    double v, *p;
-};
-
 struct pair {
     int a, b;
 };
@@ -70,6 +58,10 @@ struct pair struct_and_char(struct pair *p, const char *restrict s)
     return (struct pair){p->a, *s};
 }
 
+struct ints {
+    int v, *p;
+};
+
 // i and b->p both alias and retrict on only one param isn't sufficient for full optimization
 // (NOTE: in this case i is an int * but a char * would also alias)
 // (NOTE: more distressingly, if i were double * then restrict on b still has an effect, though not on i)
@@ -84,7 +76,7 @@ struct pair struct_and_pointer(struct ints *restrict b, int *restrict i)
 }
 
 // *b->p is aliasing with b->v (!)
-// see parameters as (int *b_v, int **b_p) and *b_p is aliasing with b_v
+// analogous to a scope like (int *b_v, int **b_p) and *b_p is aliasing with b_v
 // struct ints *restrict b is *like* (int *restrict b_v, int **restrict b_p)
 // where first restrict is actually preventing aliasing
 // redefining struct ints to {int v, *restrict p} does not help
@@ -105,6 +97,25 @@ struct pair unrolled_struct(int *restrict v, int **p)
     return (struct pair){*v, **p};
 }
 
+struct two_ints {
+    int a, b;
+};
+
+// note a pointer to a struct is still a pointer to a single object;
+// if the struct itself contains no pointer fields all storage is accounted for
+// in the single pointer and it's impossible for anything to alias here.
+// specifically it is *NOT* analogous to the aliasable scope (int *v_a, int *v_b)
+int only_values(struct two_ints *v)
+{
+    int i = v->a;
+    v->b = i + 10;
+    return v->a;
+}
+
+struct alt_ints {
+    int v, *p;
+};
+
 // b and f have no aliasing here BUT b->v and *b->p are aliasing
 struct pair struct_pointer_fields(struct ints *restrict b, struct alt_ints *f)
 {
@@ -114,7 +125,8 @@ struct pair struct_pointer_fields(struct ints *restrict b, struct alt_ints *f)
     return (struct pair){b->v, *f->p};
 }
 
-// here b->v and *f->p are aliasing
+// here b->v and *f->p are aliasing, this shows the operations in the function
+// are relevant for aliasing concerns (obviously, in hindsight)
 struct pair cross_struct_aliasing(struct ints *restrict b, struct alt_ints *f)
 {
     int c = *f->p;
@@ -130,6 +142,10 @@ struct pair same_struct_fields(struct ints *restrict b, struct ints bv)
     *b->p = c + 3;
     return (struct pair){b->v, *bv.p};
 }
+
+struct doubles {
+    double v, *p;
+};
 
 // b and f have no aliasing here BUT b->v and *b->p are aliasing
 struct pair struct_diff_fields(struct ints *restrict b, struct doubles *f)
@@ -170,6 +186,10 @@ struct array_list {
     short a[];
 };
 
+// NOTE: actually i'm not sure i understand this one, the array member is part
+// of the struct object and two different struct types shouldn't alias,
+// it would imply v and l are pointing at the same underlying object ???
+
 // restrict has huge effect here for same reason
 // there are effectively two short * parameters
 // again replacing a[] with a * restrict has no optimization effect
@@ -184,6 +204,8 @@ void struct_array_members(struct vector *restrict v, struct array_list *restrict
         l->a[i] = v->a[i];
     }
 }
+
+// NOTE: again i don't get this, the two structs shouldn't be aliasing
 
 // restrict has an effect here because v->s aliases l->s (e.g. size_t *v_s, size_t *l_s)
 // since there is a write followed by a read, restrict presents optimization opportunities
@@ -227,6 +249,26 @@ int global_ints(int *restrict c)
     // *BInt += *AInt;
     *c += *AInt;
     return *AInt;
+}
+
+// restrict helps here if v is cast to int * but not double *
+int type_and_void(int *i, void *v)
+{
+    double n = *(double *)v;
+    *i += n;
+    return *(double *)v;
+}
+
+struct intp {
+    int *restrict a;
+};
+
+// only restrict that optimizes here is on the struct field
+int struct_reference_vs_value(struct intp **ref, struct intp v)
+{
+    int i = *(*ref)->a;
+    *v.a = i + 10;
+    return *(*ref)->a;
 }
 
 

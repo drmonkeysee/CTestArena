@@ -186,6 +186,12 @@ struct array_list {
     short a[];
 };
 
+// NOTE: turns out aliasing analysis deals mostly in lvalues, not types or variables
+// in this case l->a[i] and v->a[i] are both int lvalues and therefore compilers
+// may infer they alias even thought the encompassing aggregate types l and a
+// cannot alias; technically the compiler could reason this out but in practice
+// they only consider lvalue expressions in isolation.
+
 // NOTE: actually i'm not sure i understand this one, the array member is part
 // of the struct object and two different struct types shouldn't alias,
 // it would imply v and l are pointing at the same underlying object ???
@@ -205,7 +211,7 @@ void struct_array_members(struct vector *restrict v, struct array_list *restrict
     }
 }
 
-// NOTE: again i don't get this, the two structs shouldn't be aliasing
+// NOTE: again i don't get this, the two structs shouldn't be aliasing (SEE ABOVE)
 
 // restrict has an effect here because v->s aliases l->s (e.g. size_t *v_s, size_t *l_s)
 // since there is a write followed by a read, restrict presents optimization opportunities

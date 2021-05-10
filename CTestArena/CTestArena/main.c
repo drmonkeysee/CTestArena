@@ -9,7 +9,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "aliasing.h"
+#include "sortedlist.h"
 
 void compare_sizeof(void)
 {
@@ -357,7 +359,7 @@ void with_message(const char *, ...);
 
 int main(int argc, const char *argv[])
 {
-    printf("constants:\n\t" macro_value(__STDC__) "\n\t" macro_value(__STDC_VERSION__) "\n\t" macro_value(__STDC_LIB_EXT1__) "\n");
+    /*printf("constants:\n\t" macro_value(__STDC__) "\n\t" macro_value(__STDC_VERSION__) "\n\t" macro_value(__STDC_LIB_EXT1__) "\n");
     //with_msg("food", 10);
     //with_msg("bugs");
     //with_msg(10, 20);
@@ -402,7 +404,33 @@ int main(int argc, const char *argv[])
     weird_fünc();
     🐴_func();
 
-    lenvssize();
+    lenvssize();*/
+
+    slist *list = slist_new();
+    size_t count = 1;
+    clock_t start = clock();
+    for (size_t i = 0; i < count; ++i) {
+        unsigned short a = rand();
+        if (!slist_search(list, a)) {
+            printf("Failed on %u\n", a);
+            exit(20);
+        }
+    }
+    clock_t end = clock();
+    printf("Found List %lu elements in %f milliseconds\n", count, ((double)(end - start) / CLOCKS_PER_SEC) * 1000.0);
+
+
+    svec *vec = svec_new();
+    start = clock();
+    for (size_t i = 0; i < count; ++i) {
+        unsigned short a = rand();
+        if (!svec_search(vec, a)) {
+            printf("Failed on %u\n", a);
+            exit(20);
+        }
+    }
+    end = clock();
+    printf("Found Vec %lu elements in %f milliseconds\n", count, ((double)(end - start) / CLOCKS_PER_SEC) * 1000.0);
 
     return EXIT_SUCCESS;
 }

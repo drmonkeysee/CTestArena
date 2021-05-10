@@ -13,6 +13,7 @@
 		026AC6AD18864616007EB6F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 026AC6AB18864616007EB6F1 /* InfoPlist.strings */; };
 		02BDFE6819B6831D00577027 /* aliasing.c in Sources */ = {isa = PBXBuildFile; fileRef = 02BDFE6719B6831D00577027 /* aliasing.c */; };
 		02C3A8531800C64A00E86DAF /* CTestArena.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C3A8521800C64A00E86DAF /* CTestArena.1 */; };
+		C848C55F2648D9FA00C9E2C5 /* sortedlist.c in Sources */ = {isa = PBXBuildFile; fileRef = C848C55E2648D9FA00C9E2C5 /* sortedlist.c */; };
 		C87A737720635B500099D1E4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 02C3A8501800C64A00E86DAF /* main.c */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		02C3A84D1800C64A00E86DAF /* CTestArena */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CTestArena; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3A8501800C64A00E86DAF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		02C3A8521800C64A00E86DAF /* CTestArena.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CTestArena.1; sourceTree = "<group>"; };
+		C848C55D2648D9FA00C9E2C5 /* sortedlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sortedlist.h; sourceTree = "<group>"; };
+		C848C55E2648D9FA00C9E2C5 /* sortedlist.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sortedlist.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				02C3A8521800C64A00E86DAF /* CTestArena.1 */,
 				02BDFE6919B6837C00577027 /* aliasing.h */,
 				02BDFE6719B6831D00577027 /* aliasing.c */,
+				C848C55D2648D9FA00C9E2C5 /* sortedlist.h */,
+				C848C55E2648D9FA00C9E2C5 /* sortedlist.c */,
 			);
 			path = CTestArena;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				C87A737720635B500099D1E4 /* main.c in Sources */,
 				024B3C4218EBB8EA00714B2E /* thing_doer.c in Sources */,
 				024B3C3F18EBB83400714B2E /* thing_display.c in Sources */,
+				C848C55F2648D9FA00C9E2C5 /* sortedlist.c in Sources */,
 				02BDFE6819B6831D00577027 /* aliasing.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

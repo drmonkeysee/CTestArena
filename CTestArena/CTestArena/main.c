@@ -357,6 +357,14 @@ void with_message(const char *, ...);
 #define stringify(e) #e
 #define macro_value(n) #n " " stringify(n)
 
+struct simple {
+    int a; double b;
+};
+struct exarr {
+    int a; double d;
+    char f[];
+};
+
 int main(int argc, const char *argv[])
 {
     /*printf("constants:\n\t" macro_value(__STDC__) "\n\t" macro_value(__STDC_VERSION__) "\n\t" macro_value(__STDC_LIB_EXT1__) "\n");
@@ -405,6 +413,13 @@ int main(int argc, const char *argv[])
     🐴_func();
 
     lenvssize();*/
+
+    struct simple s = {.a = 10};
+    s = (struct simple){.b = 5.0};
+    struct exarr *ea = malloc(sizeof *ea + 10);
+    ea->d = 10.0;
+    ea->f[5] = 'b';
+    *ea = (struct exarr){.a = 2};
 
     slist *list = slist_new();
     size_t count = 1;
